@@ -2,5 +2,25 @@
   <img src ="https://github.com/tchvu3/Netomation/blob/master/res/Netomation%20Logo.png?raw=true" height="175px" width="170px"/>
 </p>
 
-# Netomation
-A Social Network Automation Tool
+## Netomation - A Social Network Automation Tool
+### Software Interestingness Trigger by Social Network Automation
+
+This project is being advisored by professor Iaakov Exman.
+
+
+## Tools & Practices
+
+|Category|Status|
+|---|---|
+| Version Control System| [Git](https://git-scm.com/) & [GitHub](https://github.com/) |
+| IDE | [IntelliJ IDEA](https://www.jetbrains.com/idea/) |
+| License | [![MIT](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/) |
+| Issues | [![GitHub Issues](https://img.shields.io/github/issues/tchvu3/Netomation.svg)](https://github.com/tchvu3/Netomation/issues) |
+| Project Management Board| [Board](https://github.com/tchvu3/Netomation/projects/1) |
+| Documentation | [![Documentation](http://inch-ci.org/github/tchvu3/Netomation.svg)](https://github.com/tchvu3/Netomation/wiki/Documentation) |
+| Project Diary | [![Diary](http://inch-ci.org/github/tchvu3/Netomation.svg)](https://github.com/tchvu3/Netomation/wiki/Diary) |
+
+
+## Software Design
+
+[Architecture](https://github.com/tchvu3/Netomation/blob/master/res/Netomation_Architecture.png?raw=true)
