@@ -19,6 +19,7 @@ This project is being advisored by professor Iaakov Exman.
 | Project Management Board| [Board](https://github.com/tchvu3/Netomation/projects/1) |
 | Documentation | [![Documentation](http://inch-ci.org/github/tchvu3/Netomation.svg)](https://github.com/tchvu3/Netomation/wiki/Documentation) |
 | Project Diary | [![Diary](http://inch-ci.org/github/tchvu3/Netomation.svg)](https://github.com/tchvu3/Netomation/wiki/Diary) |
+| Code Quality Analysis | [![Codacy Badge](https://api.codacy.com/project/badge/Grade/01e606d33c8b4594b3c22ac317db2180)](https://www.codacy.com/app/tchvu3/Netomation?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=tchvu3/Netomation&amp;utm_campaign=Badge_Grade) |
 
 
 ## Software Design
