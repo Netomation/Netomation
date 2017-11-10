@@ -1,15 +1,23 @@
 package com.netomation.api;
 
-public interface SocialNetwork <S> {
+import com.netomation.data.Preferences;
 
-    public void authenticate();
+public abstract class SocialNetwork<S> {
 
-    public S expose();
+    protected S socialNetwork;
+    protected static SocialNetwork instance;
+    private Preferences preferences;
 
-    public void blockUser();
+    public S expose() {
+        return socialNetwork;
+    }
 
-    public void unblockUser();
+    public abstract void authenticate();
 
-    public void sendPrivateMessage();
+    public abstract void blockUser();
+
+    public abstract void unblockUser();
+
+    public abstract void sendPrivateMessage();
 
 }

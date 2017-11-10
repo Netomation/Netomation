@@ -1,5 +1,8 @@
 package com.netomation.core;
 
+import com.netomation.api.FacebookWrapper;
+import com.netomation.api.SocialNetwork;
+import com.netomation.api.TwitterWrapper;
 import com.netomation.data.Preferences;
 import facebook4j.Facebook;
 import facebook4j.FacebookFactory;
@@ -14,6 +17,7 @@ public class Main {
     public static void main(String[] args) {
         Twitter tw = TwitterFactory.getSingleton();
         Facebook fb = FacebookFactory.getSingleton();
+        SocialNetwork social = TwitterWrapper.getInstance();
 
 
 
