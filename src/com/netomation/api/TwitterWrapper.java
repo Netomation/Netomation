@@ -11,22 +11,22 @@ public class TwitterWrapper extends SocialNetwork<Twitter> {
     private Configuration configuration = null;
     private long ownID;
 
-    public static TwitterWrapper getInstance() {
-        if(instance == null)
-            instance = new TwitterWrapper();
-        return (TwitterWrapper)instance;
-    }
 
-    private TwitterWrapper() {
+    public TwitterWrapper() {
         authenticate();
         socialNetwork = new TwitterFactory(configuration).getInstance();
         while (ownID <= 0) {
             try {ownID = socialNetwork.getId();}
-            catch (TwitterException exp) { }
+            catch (TwitterException ignore) {}
         }
     }
 
     @Override
+    public Twitter expose() {
+        return socialNetwork;
+    }
+
+	@Override
     public void authenticate() {
         configuration =
                 new ConfigurationBuilder().setDebugEnabled(true)

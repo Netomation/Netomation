@@ -1,19 +1,17 @@
 package com.netomation.api;
 
 import facebook4j.Facebook;
-import twitter4j.TwitterException;
-import twitter4j.TwitterFactory;
 
 public class FacebookWrapper extends SocialNetwork<Facebook> {
 
-    public static FacebookWrapper getInstance() {
-        if(instance == null)
-            instance = new FacebookWrapper();
-        return (FacebookWrapper)instance;
+
+    public FacebookWrapper() {
+
     }
 
-    private FacebookWrapper() {
-
+    @Override
+    public Facebook expose() {
+        return null;
     }
 
     @Override

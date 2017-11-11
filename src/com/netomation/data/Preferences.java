@@ -3,8 +3,6 @@ package com.netomation.data;
 import org.ini4j.Wini;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
 
 public class Preferences {
 
@@ -28,6 +26,19 @@ public class Preferences {
         }
         catch (Exception exp) { exp.printStackTrace(); }
     }
+
+    private void store(String section, String option, Object value) {
+        ini.put(section,option,value);
+        commit();
+    }
+
+    private void commit() {
+        try {
+            ini.store();
+        } catch (Exception exp) {exp.printStackTrace();}
+    }
+
+
 
 
 }
