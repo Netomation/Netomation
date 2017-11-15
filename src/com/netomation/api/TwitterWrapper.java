@@ -6,49 +6,47 @@ import twitter4j.TwitterFactory;
 import twitter4j.conf.Configuration;
 import twitter4j.conf.ConfigurationBuilder;
 
-public class TwitterWrapper extends SocialNetwork<Twitter> {
+public class TwitterWrapper implements SocialNetwork {
 
-    private Configuration configuration = null;
-    private long ownID;
+    private static TwitterWrapper instance;
 
     public static TwitterWrapper getInstance() {
         if(instance == null)
             instance = new TwitterWrapper();
-        return (TwitterWrapper)instance;
+        return instance;
     }
 
     private TwitterWrapper() {
-        authenticate();
-        socialNetwork = new TwitterFactory(configuration).getInstance();
-        while (ownID <= 0) {
-            try {ownID = socialNetwork.getId();}
-            catch (TwitterException exp) { }
-        }
-    }
-
-    @Override
-    public void authenticate() {
-        configuration =
-                new ConfigurationBuilder().setDebugEnabled(true)
-                .setOAuthConsumerKey("setOAuthConsumerKey")
-                .setOAuthConsumerSecret("setOAuthConsumerSecret")
-                .setOAuthAccessToken("setOAuthAccessToken")
-                .setOAuthAccessTokenSecret("setOAuthAccessTokenSecret")
-                .build();
-    }
-
-    @Override
-    public void blockUser() {
 
     }
 
     @Override
-    public void unblockUser() {
+    public Object expose() {
+        return null;
+    }
+
+    @Override
+    public long getOwnID() {
+        return 0;
+    }
+
+    @Override
+    public void getUser(long id) {
 
     }
 
     @Override
-    public void sendPrivateMessage() {
+    public void blockUser(long id) {
+
+    }
+
+    @Override
+    public void unblockUser(long id) {
+
+    }
+
+    @Override
+    public void sendPrivateMessage(long id, String msg) {
 
     }
 }

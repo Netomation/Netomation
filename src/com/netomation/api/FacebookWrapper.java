@@ -1,15 +1,15 @@
 package com.netomation.api;
 
 import facebook4j.Facebook;
-import twitter4j.TwitterException;
-import twitter4j.TwitterFactory;
 
-public class FacebookWrapper extends SocialNetwork<Facebook> {
+public class FacebookWrapper implements SocialNetwork {
+
+    private static FacebookWrapper instance;
 
     public static FacebookWrapper getInstance() {
         if(instance == null)
             instance = new FacebookWrapper();
-        return (FacebookWrapper)instance;
+        return instance;
     }
 
     private FacebookWrapper() {
@@ -17,22 +17,32 @@ public class FacebookWrapper extends SocialNetwork<Facebook> {
     }
 
     @Override
-    public void authenticate() {
+    public Object expose() {
+        return null;
+    }
+
+    @Override
+    public long getOwnID() {
+        return 0;
+    }
+
+    @Override
+    public void getUser(long id) {
 
     }
 
     @Override
-    public void blockUser() {
+    public void blockUser(long id) {
 
     }
 
     @Override
-    public void unblockUser() {
+    public void unblockUser(long id) {
 
     }
 
     @Override
-    public void sendPrivateMessage() {
+    public void sendPrivateMessage(long id, String msg) {
 
     }
 }
