@@ -1,6 +1,7 @@
 package com.netomation.api;
 
 import facebook4j.Facebook;
+import twitter4j.Twitter;
 
 public class FacebookWrapper implements SocialNetwork {
 
@@ -27,8 +28,8 @@ public class FacebookWrapper implements SocialNetwork {
     }
 
     @Override
-    public void getUser(long id) {
-
+    public Object getUser(long id) {
+        return null;
     }
 
     @Override

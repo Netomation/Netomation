@@ -31,8 +31,8 @@ public class TwitterWrapper implements SocialNetwork {
     }
 
     @Override
-    public void getUser(long id) {
-
+    public Object getUser(long id) {
+        return null;
     }
 
     @Override

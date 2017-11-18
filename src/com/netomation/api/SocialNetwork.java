@@ -6,7 +6,7 @@ public interface SocialNetwork {
 
     long getOwnID();
 
-    void getUser(long id);
+    Object getUser(long id);
 
     void blockUser(long id);
 
