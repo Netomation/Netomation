@@ -27,8 +27,6 @@ public class SocialNetworkFactory {
         switch(name.trim().toLowerCase()) {
             case "twitter": latestSocialNetwork = TwitterWrapper.getInstance();
             break;
-            case "facebook": latestSocialNetwork = FacebookWrapper.getInstance();
-            break;
             default: return null;
         }
         return latestSocialNetwork;

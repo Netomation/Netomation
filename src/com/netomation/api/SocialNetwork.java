@@ -4,7 +4,7 @@ public interface SocialNetwork {
 
     Object expose();
 
-    long getOwnID();
+    String getOwnID();
 
     Object getUser(long id);
 
@@ -13,5 +13,7 @@ public interface SocialNetwork {
     void unblockUser(long id);
 
     void sendPrivateMessage(long id, String msg);
+
+    Object getConfiguration();
 
 }

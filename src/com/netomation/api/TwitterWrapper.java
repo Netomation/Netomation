@@ -1,5 +1,6 @@
 package com.netomation.api;
 
+import facebook4j.FacebookFactory;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
@@ -9,6 +10,13 @@ import twitter4j.conf.ConfigurationBuilder;
 public class TwitterWrapper implements SocialNetwork {
 
     private static TwitterWrapper instance;
+    private Configuration configuration = null;
+    private Twitter twitter = null;
+    private long ownID;
+    private String OAuthConsumerKey;
+    private String OAuthConsumerSecret;
+    private String OAuthAccessToken;
+    private String OAuthAccessTokenSecret;
 
     public static TwitterWrapper getInstance() {
         if(instance == null)
@@ -17,17 +25,29 @@ public class TwitterWrapper implements SocialNetwork {
     }
 
     private TwitterWrapper() {
-
+        configuration = getConfiguration();
+        twitter = new TwitterFactory(configuration).getInstance();
+        try {ownID = twitter.getId();}
+        catch (TwitterException ignore) {}
     }
 
     @Override
-    public Object expose() {
-        return null;
+    public Configuration getConfiguration() {
+        return new ConfigurationBuilder().setDebugEnabled(true)
+                .setOAuthConsumerKey(OAuthConsumerKey)
+                .setOAuthConsumerSecret(OAuthConsumerSecret)
+                .setOAuthAccessToken(OAuthAccessToken)
+                .setOAuthAccessTokenSecret(OAuthAccessTokenSecret).build();
     }
 
     @Override
-    public long getOwnID() {
-        return 0;
+    public Twitter expose() {
+        return twitter;
+    }
+
+    @Override
+    public String getOwnID() {
+        return ownID + "";
     }
 
     @Override
@@ -37,16 +57,17 @@ public class TwitterWrapper implements SocialNetwork {
 
     @Override
     public void blockUser(long id) {
-
+        // TODO fill
     }
 
     @Override
     public void unblockUser(long id) {
-
+        // TODO fill
     }
 
     @Override
     public void sendPrivateMessage(long id, String msg) {
-
+        // TODO fill
     }
+
 }
