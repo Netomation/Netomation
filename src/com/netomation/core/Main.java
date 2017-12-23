@@ -3,13 +3,12 @@ package com.netomation.core;
 import com.netomation.api.SocialNetwork;
 import com.netomation.api.SocialNetworkFactory;
 import com.netomation.api.TwitterWrapper;
-import com.netomation.cache.Cache;
-
-import java.util.Random;
+import com.netomation.data.Preferences;
 
 public class Main {
 
     public static void main(String[] args) {
+        Preferences.initProgramPreferences();
 
         // Dynamic creation, can be at run time!
         SocialNetwork twitter1 = SocialNetworkFactory.getSocialNetwork("twitter");

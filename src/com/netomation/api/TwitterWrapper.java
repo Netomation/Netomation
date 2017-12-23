@@ -1,6 +1,5 @@
 package com.netomation.api;
 
-import facebook4j.FacebookFactory;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
