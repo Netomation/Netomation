@@ -27,9 +27,13 @@ public class Preferences {
         catch (Exception exp) { exp.printStackTrace(); }
     }
 
-    private void store(String section, String option, Object value) {
+    public void store(String section, String option, Object value) {
         ini.put(section,option,value);
         commit();
+    }
+
+    public String get(String section, String option) {
+        return ini.get(section, option);
     }
 
     private void commit() {

@@ -52,7 +52,7 @@ public class TwitterWrapper implements SocialNetwork {
 
     @Override
     public Object getUser(long id) {
-        return null;
+        return null; // TODO fill
     }
 
     @Override

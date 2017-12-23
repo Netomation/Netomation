@@ -5,17 +5,11 @@ import com.netomation.api.SocialNetworkFactory;
 import com.netomation.api.TwitterWrapper;
 import com.netomation.cache.Cache;
 
+import java.util.Random;
+
 public class Main {
 
     public static void main(String[] args) {
-
-        Cache.createRow()
-                .addData("Name", "gabi")
-                .addData("Location", "Israel")
-                .addData("ID", 154265)
-                .addData("Input_Messages", 12)
-                .addData("Output_Messages", 12)
-                .commit();
 
         // Dynamic creation, can be at run time!
         SocialNetwork twitter1 = SocialNetworkFactory.getSocialNetwork("twitter");
@@ -27,4 +21,5 @@ public class Main {
         SocialNetwork latest = SocialNetworkFactory.getLatest(); // latest equals now to "twitter2"
 
     }
+
 }
