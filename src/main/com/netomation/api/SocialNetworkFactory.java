@@ -7,18 +7,19 @@ public class SocialNetworkFactory {
     private static SocialNetwork latestSocialNetwork;
 
     public static<S extends SocialNetwork> SocialNetwork getSocialNetwork(Class<S> socialNetwork) {
+        Method toInvoke = null;
         try {
-            latestSocialNetwork = socialNetwork.newInstance();
+            toInvoke = socialNetwork.getMethod("getInstance");
+        } catch(NoSuchMethodException e) { }
+
+        try {
+            latestSocialNetwork = toInvoke != null ?
+                    (SocialNetwork) toInvoke.invoke(null) :
+                    socialNetwork.newInstance();
+
             return latestSocialNetwork;
         } catch (Exception failed1) {
             System.err.println(failed1.getMessage() + ".\nTrying to call: " + socialNetwork.getName() + ".getInstance()");
-            try {
-                Method toInvoke = socialNetwork.getMethod("getInstance");
-                latestSocialNetwork = (SocialNetwork) toInvoke.invoke(null);
-                return latestSocialNetwork;
-            } catch (Exception failed2) {
-                System.err.println(socialNetwork.getName() + ".getInstance() Could not be found.");
-            }
         }
         return null;
     }

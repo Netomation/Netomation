@@ -14,10 +14,10 @@ public class TwitterWrapper extends SocialNetwork {
     private Configuration configuration;
     private Twitter twitter = null;
     private long ownID;
-    private String OAuthConsumerKey;
-    private String OAuthConsumerSecret;
-    private String OAuthAccessToken;
-    private String OAuthAccessTokenSecret;
+    private String OAuthConsumerKey = System.getenv("OAUTH_CONSUMER_KEY");
+    private String OAuthConsumerSecret = System.getenv("OAUTH_CONSUMER_SECRET");
+    private String OAuthAccessToken = System.getenv("OAUTH_ACCESS_TOKEN");
+    private String OAuthAccessTokenSecret = System.getenv("OAUTH_ACCESS_TOKEN_SECRET");
 
     public static TwitterWrapper getInstance() {
         if(instance == null)
