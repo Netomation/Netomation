@@ -1,8 +1,11 @@
 package main.com.netomation.core;
 
 import main.com.netomation.api.SocialNetwork;
+import main.com.netomation.cache.MongoCache;
 import main.com.netomation.data.Globals;
 import main.com.netomation.data.Messages;
+
+import static main.com.netomation.core.Main.delay;
 
 public class Worker extends Thread {
 
@@ -15,14 +18,27 @@ public class Worker extends Thread {
     public void run() {
         while(true) {
             socialNetwork.updateActiveUsersList();
-            for(SocialNetwork.SocialNetworkUser user : socialNetwork.activeUsersList) {
-                socialNetwork.sendPrivateMessage(user.id, Messages.generateMessage());
-                delay(Globals.DELAY_BEFORE_INTERACTING_WITH_NEXT_USER);
+            for(int i = 0 ; i < socialNetwork.getActiveUsersList().size() ; i++) {
+                SocialNetwork.SocialNetworkUser user = socialNetwork.getActiveUsersList().get(i);
+                if(socialNetwork.shouldContactUser(user) && !userIsFromInitGroup(user) && socialNetwork.canSendPrivateMessage(user)) {
+                    String message = Messages.generateMessage();
+                    SocialNetwork.SocialNetworkPrivateMessage privateMessage = Main.generatePrivateMessageObject(user, message);
+                    socialNetwork.sendPrivateMessage(user.getId(), message);
+                    MongoCache.getInstance().putToUsersTable(user);
+                    MongoCache.getInstance().addMessageToUser(user.getId(), privateMessage);
+                    socialNetwork.createFriendship(user.getId());
+                    delay(Globals.DELAY_BEFORE_INTERACTING_WITH_NEXT_USER);
+                }
+                socialNetwork.updateActiveUsersList();
             }
         }
     }
 
-    public void delay(int seconds) {
-        try{Thread.sleep(1000 * seconds);} catch (Exception ignore){}
+    private boolean userIsFromInitGroup(SocialNetwork.SocialNetworkUser user) {
+        for(int i = 0 ; i < Globals.START_GROUP_IDS.length ; i++)
+            if(user.getId().equals(Globals.START_GROUP_IDS[i]))
+                return true;
+        return false;
     }
+
 }

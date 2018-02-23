@@ -13,7 +13,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /*
-* Will be replaced soon with MongoDB!
+* replaced with MongoDB
 * */
 
 @Deprecated
@@ -83,7 +83,7 @@ public abstract class Cache {
             return this;
         }
         public HashMap commit() {
-            data.put(Globals.CACHE_ENTRY_CREATION_TIME_KEY, Calendar.getInstance().getTimeInMillis());
+            data.put(Globals.MONGO_DB_ENTRY_CREATION_TIME_KEY, Calendar.getInstance().getTimeInMillis());
             Cache.commitToFile(this);
             return data;
         }

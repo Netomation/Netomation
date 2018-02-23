@@ -2,7 +2,7 @@ package main.com.netomation.api;
 
 import java.lang.reflect.Method;
 
-public class SocialNetworkFactory {
+public abstract class SocialNetworkFactory {
 
     private static SocialNetwork latestSocialNetwork;
 

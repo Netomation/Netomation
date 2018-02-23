@@ -3,47 +3,53 @@ package main.com.netomation.data;
 public abstract class Filter {
 
     public static void initFilter() {
-        for(int i = 0 ; i < Globals.VALID_KEYWORDS.length ; i++)
-            Globals.VALID_KEYWORDS[i] = Globals.VALID_KEYWORDS[i].toLowerCase();
-        for(int i = 0 ; i < Globals.VALID_LANGUAGES.length ; i++)
-            Globals.VALID_LANGUAGES[i] = Globals.VALID_LANGUAGES[i].toLowerCase();
-        for(int i = 0 ; i < Globals.VALID_COUNTRIES.length ; i++)
-            Globals.VALID_COUNTRIES[i] = Globals.VALID_COUNTRIES[i].toLowerCase();
+        for(int i = 0 ; i < Globals.FILTER_KEYWORDS.length ; i++)
+            Globals.FILTER_KEYWORDS[i] = Globals.FILTER_KEYWORDS[i].toLowerCase();
+        for(int i = 0 ; i < Globals.FILTER_LANGUAGES.length ; i++)
+            Globals.FILTER_LANGUAGES[i] = Globals.FILTER_LANGUAGES[i].toLowerCase();
+        for(int i = 0 ; i < Globals.FILTER_COUNTRIES.length ; i++)
+            Globals.FILTER_COUNTRIES[i] = Globals.FILTER_COUNTRIES[i].toLowerCase();
     }
 
-    public static boolean descriptionPassFilter(String description) {
+    public static boolean descriptionPassFilter(String description, boolean include) {
+        if(Globals.FILTER_KEYWORDS.length == 0) {
+            return true;
+        }
         description = description.toLowerCase();
-        for(String keyword : Globals.VALID_KEYWORDS) {
+        for(String keyword : Globals.FILTER_KEYWORDS) {
             if(description.contains(keyword))
-                return true;
+                return include;
         }
-        return false;
+        return !include;
     }
 
-    public static boolean languagePassFilter(String language) {
-        language = language.toLowerCase();
-        for(String lang : Globals.VALID_LANGUAGES) {
-            if(language.equals(lang))
-                return true;
+    public static boolean languagePassFilter(String language, boolean include) {
+        if(Globals.FILTER_LANGUAGES.length == 0) {
+            return true;
         }
-        return false;
+        language = language.toLowerCase();
+        for(String lang : Globals.FILTER_LANGUAGES) {
+            if(language.equals(lang))
+                return include;
+        }
+        return !include;
     }
 
     public static boolean agePassFilter(int age) {
-        return Globals.MIN_AGE_FILTER <= age && age <= Globals.MAX_AGE_FILTER;
+        return Globals.MIN_AGE_FILTER < 0 && Globals.MAX_AGE_FILTER < 0 ||
+                Globals.MIN_AGE_FILTER <= age && age <= Globals.MAX_AGE_FILTER;
     }
 
-    public static boolean countryPassFilter(String country) {
-        country = country.toLowerCase();
-        for(String count : Globals.VALID_COUNTRIES) {
-            if(country.equals(count))
-                return true;
+    public static boolean countryPassFilter(String country, boolean include) {
+        if(Globals.FILTER_COUNTRIES.length == 0) {
+            return true;
         }
-        return false;
-    }
-
-    public static int amountOfTimesInteractedWithUser(String id) {
-        return -1;
+        country = country.toLowerCase();
+        for(String count : Globals.FILTER_COUNTRIES) {
+            if(country.equals(count))
+                return include;
+        }
+        return !include;
     }
 
 }

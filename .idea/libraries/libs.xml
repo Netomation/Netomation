@@ -2,9 +2,14 @@
   <library name="libs">
     <CLASSES>
       <root url="file://$PROJECT_DIR$/libs" />
+      <root url="file://$PROJECT_DIR$/libs/mongodb" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/libs/mongodb" />
+    </SOURCES>
     <jarDirectory url="file://$PROJECT_DIR$/libs" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/libs/mongodb" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/libs/mongodb" recursive="false" type="SOURCES" />
   </library>
 </component>
