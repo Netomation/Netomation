@@ -31,7 +31,11 @@ public class Preferences {
     }
 
     private void createWiniAndAttachFile() {
-        try { ini = new Wini(file); }
+        try {
+            if(ini != null) {
+                ini = new Wini(file);
+            }
+        }
         catch (Exception exp) { exp.printStackTrace(); }
     }
 

@@ -26,7 +26,8 @@ public class Worker extends Thread {
                     socialNetwork.sendPrivateMessage(user.getId(), message);
                     MongoCache.getInstance().putToUsersTable(user);
                     MongoCache.getInstance().addMessageToUser(user.getId(), privateMessage);
-                    socialNetwork.createFriendship(user.getId());
+                    if(socialNetwork.createFriendship(user.getId()))
+                        MongoCache.getInstance().followingUser(user);
                     delay(Globals.DELAY_BEFORE_INTERACTING_WITH_NEXT_USER);
                 }
                 socialNetwork.updateActiveUsersList();

@@ -33,9 +33,14 @@ public abstract class Globals {
     public static String MONGO_DB_USER_GEO_LOCATION_KEY = "user_geographical_location";
     public static String MONGO_DB_USER_LANGUAGE_KEY = "user_language";
     public static String MONGO_DB_USER_FIRST_MEET_TIMESTAMP_KEY = "first_meet_timestamp";
+    public static String MONGO_DB_USER_PRIVATE_MESSAGES_KEY = "private_messages";
+    public static String MONGO_DB_MESSAGE_TIMESTAMP_KEY = "timestamp";
+    public static String MONGO_DB_MESSAGE_ID_KEY = "message_id";
+    public static String MONGO_DB_FROM_USER_ID_KEY = "from_user";
+    public static String MONGO_DB_TO_USER_ID_KEY = "to_user";
+    public static String MONGO_DB_MESSAGE_CONTENT_KEY = "content";
     public static String MONGO_DB_DATABASE_NAME = "netomation";
     public static String MONGO_DB_USERS_COLLECTION_NAME = "users";
-    public static String MONGO_DB_MESSAGES_COLLECTION_NAME = "messages";
     public static String MONGO_DB_ADDRESS = "localhost";
     public static int MONGO_DB_PORT = 27017;
 
@@ -58,7 +63,13 @@ public abstract class Globals {
             "acx", "aec", "ayn", "ssh",
             "ajp", "arb", "apd", "pga",
             "acq", "abh", "aeb", "auz"
+    };
 
+    public static String[] CREDENTIALS = {
+            "9xjQZs17bpUCHvCG9pokGdJzi",
+            "N7VKHt22ItDJhXqW4sjuS2Ea7CFdOc1Oa8Bu2NOTGIVHpzs7XW",
+            "892388780753211392-JfFbaWlpfQb03rxQV6hZEBu12SDr3Sl",
+            "SosL4XiNEBAtVGX7J7ElU9ptgqNWS0leK2vbO8nWN28dv"
     };
 
     // Execution Related
@@ -77,7 +88,12 @@ public abstract class Globals {
 
     // SocialNetworkUserObject Related
     public static final String UNKNOWN_PARENT = "UNKNOWN_PARENT";
-    public enum ConnectionType {NONE, FROM_ME, FROM_HIM, BOTH}
+    public static class ConnectionType {
+        final public static String NONE = "NONE";
+        final public static String FROM_ME = "FROM_ME";
+        final public static String FROM_HIM = "FROM_HIM";
+        final public static String BOTH = "BOTH";
+    }
     public enum WaitingTypes {
         DONT_WAIT_JUST_TRY_AGAIN,
         WAIT_FIXED_TIME_AND_TRY_AGAIN ,

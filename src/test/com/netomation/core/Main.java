@@ -7,62 +7,58 @@ import main.com.netomation.cache.MongoCache;
 import main.com.netomation.data.Globals;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 public class Main {
 
+    static Dummy dummy = new Dummy();
+
     public static void main(String[] args) {
 
+        new Notifier().start();
+        dummy.doYourThing();
 
-        ArrayList<Integer> list = new ArrayList<>();
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        list.add(4);
-        for(int i = 0 ; i < list.size() ; i++) {
-            int s = list.get(i);
-            if(s == 1)
-                list.add(12);
-            if(s == 2)
-                list.add(122);
-            if(s == 3)
-                list.add(1222);
-            System.out.println(s);
-        }
         System.exit(0);
+
         MongoCache.getInstance().deleteAllDataFromDatabase();
+        UserImpl user1 = new UserImpl(null);
+        user1.setId(1);
+        user1.setFirstName("Avihu");
+        user1.setLastName("Harush");
+        user1.setGeoLocation("Israel");
+        MongoCache.getInstance().putToUsersTable(user1);
 
-        HashMap<String, Object> map1 = new HashMap<>();
-        map1.put(Globals.MONGO_DB_USER_ID_KEY, 1);
-        map1.put("first_name", "Avihu");
-        map1.put("last_name", "Harush");
-        MongoCache.getInstance().putToUsersTable(map1);
+        UserImpl user2 = new UserImpl(null);
+        user2.setId(1);
+        user2.setFirstName("Avihu");
+        user2.setLastName("Harush");
+        user2.setGeoLocation("Jordan");
+        user2.setFirstMeetTimestamp(new Date());
+        MongoCache.getInstance().putToUsersTable(user2);
 
-        HashMap<String, Object> map2 = new HashMap<>();
-        map2.put(Globals.MONGO_DB_USER_ID_KEY, 2);
-        map2.put("first_name", "Radik");
-        map2.put("last_name", "Lianski");
-        MongoCache.getInstance().putToUsersTable(map2);
+        SocialNetwork.SocialNetworkPrivateMessage message = new SocialNetwork.SocialNetworkPrivateMessage();
+        message.setFromUserId(1);
+        message.setToUserId(13);
+        message.setContent("Testing content");
+        MongoCache.getInstance().addMessageToUser(1, message);
 
-        HashMap<String, Object> editMap = new HashMap<>();
-        editMap.put(Globals.MONGO_DB_USER_ID_KEY, 1);
-        editMap.put("first_name", "Gabi");
-        editMap.put("last_name", "Simba");
-        MongoCache.getInstance().putToUsersTable(editMap);
 
-        MongoCache.getInstance().putToUsersTable(new UserImpl(null));
+        SocialNetwork.SocialNetworkPrivateMessage message2 = new SocialNetwork.SocialNetworkPrivateMessage();
+        message2.setFromUserId(13);
+        message2.setToUserId(1);
+        message2.setContent("Response Testing content");
+        MongoCache.getInstance().addMessageToUser(1, message2);
 
+        MongoCache.getInstance().userFollowUs(user2);
+        MongoCache.getInstance().followingUser(user2);
+        MongoCache.getInstance().userStoppedFollowUs(user2);
 
 
         System.exit(0);
 
         SocialNetwork twitter = SocialNetworkFactory.getSocialNetwork(TwitterWrapper.class);
-        twitter.setCredentials(
-                "9xjQZs17bpUCHvCG9pokGdJzi",
-                "N7VKHt22ItDJhXqW4sjuS2Ea7CFdOc1Oa8Bu2NOTGIVHpzs7XW",
-                "892388780753211392-JfFbaWlpfQb03rxQV6hZEBu12SDr3Sl",
-                "SosL4XiNEBAtVGX7J7ElU9ptgqNWS0leK2vbO8nWN28dv"
-        );
+        twitter.setCredentials(Globals.CREDENTIALS[0], Globals.CREDENTIALS[1], Globals.CREDENTIALS[2], Globals.CREDENTIALS[3]);
         try {
             SocialNetwork.SocialNetworkUser user = twitter.getUser(twitter.getOwnID());
             MongoCache.getInstance().putToUsersTable(user);
@@ -70,6 +66,15 @@ public class Main {
     }
 
 
+    private static class Notifier extends Thread {
+        public void run() {
+            try{sleep(3000);}catch (Exception exp){exp.printStackTrace();}
+            synchronized (dummy) {
+                dummy.notify();
+            }
+
+        }
+    }
 
     private static class UserImpl extends SocialNetwork.SocialNetworkUser {
 

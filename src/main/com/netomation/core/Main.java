@@ -51,7 +51,7 @@ public class Main {
                 "After reviewing and editing the properties as required\n" +
                 "press enter key to continue...");
         try{System.in.read();}catch (Exception exp){exp.printStackTrace();}
-        Preferences.initPreferences();
+        initProgram();
     }
 
     public static void delay(int time) {
@@ -65,4 +65,5 @@ public class Main {
         toReturn.setFromUserId(socialNetwork.getOwnID());
         return toReturn;
     }
+
 }

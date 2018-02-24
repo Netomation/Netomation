@@ -3,6 +3,7 @@ package main.com.netomation.api;
 import main.com.netomation.core.Main;
 import main.com.netomation.data.Filter;
 import main.com.netomation.data.Globals;
+import main.com.netomation.data.Preferences;
 import twitter4j.*;
 import twitter4j.conf.Configuration;
 import twitter4j.conf.ConfigurationBuilder;
@@ -62,13 +63,15 @@ public class TwitterWrapper extends SocialNetwork {
     public boolean canSendPrivateMessage(SocialNetworkUser user) {
         Relationship relationship = null;
         boolean execute = true;
-        while(execute) {
+        while (execute) {
             execute = false;
             try {
-                relationship = twitter.showFriendship((Long)getOwnID(), (Long)user.getId());
-            } catch (Exception exp) {execute = handleException(exp);}
+                relationship = twitter.showFriendship((Long) getOwnID(), (Long) user.getId());
+            } catch (Exception exp) {
+                execute = handleException(exp);
+            }
         }
-        return relationship.canSourceDm();
+        return relationship != null && relationship.canSourceDm();
     }
 
     @Override
@@ -76,7 +79,7 @@ public class TwitterWrapper extends SocialNetwork {
         SocialNetworkPrivateMessage toReturn = new SocialNetworkPrivateMessage();
         DirectMessage message = (DirectMessage) privateMessage;
         toReturn.setContent(message.getText());
-        toReturn.setTimestamp(message.getCreatedAt().getTime());
+        toReturn.setTimestamp(message.getCreatedAt());
         toReturn.setFromUserId(message.getSenderId());
         toReturn.setToUserId(message.getRecipientId());
         return toReturn;
@@ -228,7 +231,7 @@ public class TwitterWrapper extends SocialNetwork {
         }
     }
 
-    public boolean handleException(Exception exp) {
+    public synchronized boolean handleException(Exception exp) {
         Globals.WaitingTypes type = getOperationFromStatusCode(exp);
         if(type == null) {
             return false;
@@ -241,13 +244,36 @@ public class TwitterWrapper extends SocialNetwork {
             return true;
         } else if(type == Globals.WaitingTypes.WAIT_SPECIFIC_TIME_AND_TRY_AGAIN) {
             int time = twitterException.getRateLimitStatus().getSecondsUntilReset();
+            System.out.println("Waiting for " + time + " seconds...");
             Main.delay(time + 5);
             return true;
         } else if(type == Globals.WaitingTypes.WAIT_UNTIL_ORDERD_TO_TRY_AGAIN) {
-            try{this.wait();}catch (Exception ignore){}
+            System.out.println("Waiting for new credentials...");
+            while(!credentialsChanged())
+                Main.delay(Globals.DELAY_BEFORE_TRYING_OPERATION_AGAIN);
+            configuration = null;
+            setCredentials(Globals.CREDENTIALS);
+            initTwitterObject();
             return true;
         } else if(type == Globals.WaitingTypes.DONT_TRY_AGAIN) {
             return false;
+        }
+        return false;
+    }
+
+    private boolean credentialsChanged() {
+        Preferences.initPreferences();
+        if(!Globals.CREDENTIALS[0].equals(this.OAuthConsumerKey)) {
+            return true;
+        }
+        if(!Globals.CREDENTIALS[1].equals(this.OAuthConsumerSecret)) {
+            return true;
+        }
+        if(!Globals.CREDENTIALS[2].equals(this.OAuthAccessToken)) {
+            return true;
+        }
+        if(!Globals.CREDENTIALS[3].equals(this.OAuthAccessTokenSecret)) {
+            return true;
         }
         return false;
     }

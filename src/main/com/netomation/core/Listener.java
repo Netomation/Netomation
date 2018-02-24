@@ -40,9 +40,15 @@ public class Listener extends Thread {
             @Override
             public void onUnfavorite(User user, User user1, Status status) { }
             @Override
-            public void onFollow(User user, User user1) { }
+            public void onFollow(User user, User user1) {
+                if(user.getId() != Long.parseLong(socialNetwork.getOwnID().toString()) && user1.getId() == Long.parseLong(socialNetwork.getOwnID().toString()))
+                    MongoCache.getInstance().userFollowUs(socialNetwork.getUser(user.getId()));
+            }
             @Override
-            public void onUnfollow(User user, User user1) { }
+            public void onUnfollow(User user, User user1) {
+                if(user.getId() != Long.parseLong(socialNetwork.getOwnID().toString()) && user1.getId() == Long.parseLong(socialNetwork.getOwnID().toString()))
+                    MongoCache.getInstance().userStoppedFollowUs(socialNetwork.getUser(user.getId()));
+            }
             @Override
             public void onUserListMemberAddition(User user, User user1, UserList userList) { }
             @Override
