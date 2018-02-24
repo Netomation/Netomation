@@ -17,19 +17,32 @@ public class Worker extends Thread {
 
     public void run() {
         while(true) {
+            System.out.println("Initial update of users list.");
             socialNetwork.updateActiveUsersList();
             for(int i = 0 ; i < socialNetwork.getActiveUsersList().size() ; i++) {
                 SocialNetwork.SocialNetworkUser user = socialNetwork.getActiveUsersList().get(i);
                 if(socialNetwork.shouldContactUser(user) && !userIsFromInitGroup(user) && socialNetwork.canSendPrivateMessage(user)) {
-                    String message = Messages.generateMessage();
+                    String message = Messages.generateMessage(user.getId());
                     SocialNetwork.SocialNetworkPrivateMessage privateMessage = Main.generatePrivateMessageObject(user, message);
-                    socialNetwork.sendPrivateMessage(user.getId(), message);
-                    MongoCache.getInstance().putToUsersTable(user);
-                    MongoCache.getInstance().addMessageToUser(user.getId(), privateMessage);
-                    if(socialNetwork.createFriendship(user.getId()))
-                        MongoCache.getInstance().followingUser(user);
+                    System.out.println("Trying to send message to user: " + user.getFirstName() + " " + user.getLastName());
+                    if(socialNetwork.canSendPrivateMessage(user)) {
+                        socialNetwork.sendPrivateMessage(user.getId(), message);
+                        System.out.println("successfully sent a private message.");
+                        MongoCache.getInstance().putToUsersTable(user);
+                        MongoCache.getInstance().addMessageToUser(user.getId(), privateMessage);
+                        System.out.println("Trying to follow: " + user.getFirstName() + " " + user.getLastName());
+                        if(socialNetwork.createFriendship(user.getId())) {
+                            System.out.println("successfully followed: " + user.getFirstName() + " " + user.getLastName());
+                            MongoCache.getInstance().followingUser(user);
+                        } else {
+                            System.out.println("Could not follow: " + user.getFirstName() + " " + user.getLastName());
+                        }
+                    } else {
+                        System.out.println("Could not sent a private message.");
+                    }
                     delay(Globals.DELAY_BEFORE_INTERACTING_WITH_NEXT_USER);
                 }
+                System.out.println("Updating users list.");
                 socialNetwork.updateActiveUsersList();
             }
         }

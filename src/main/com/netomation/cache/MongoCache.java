@@ -3,6 +3,7 @@ package main.com.netomation.cache;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
+import com.mongodb.ServerAddress;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
@@ -25,9 +26,17 @@ public class MongoCache {
     private MongoDatabase database = null;
 
     public synchronized static MongoCache getInstance() {
-        if(instance == null)
+        if(instance == null) {
             instance = new MongoCache();
+        }
         return instance;
+    }
+
+    public static boolean validConnection() {
+        try {
+            new MongoClient(Globals.MONGO_DB_ADDRESS, Globals.MONGO_DB_PORT).getAddress();
+            return true;
+        } catch (Exception exp) {return false;}
     }
 
     private MongoCache() {
@@ -63,20 +72,26 @@ public class MongoCache {
             }
             collection.insertOne(document);
         } else { // edit entry
-            BasicDBObject updatedDocument = new BasicDBObject();
-            for (String key : values.keySet()) {
-                if(key.equals(Globals.MONGO_DB_USER_ID_KEY) && result.first().get(Globals.MONGO_DB_USER_ID_KEY) != null) {
-                    continue;
-                }
-                if(key.equals(Globals.MONGO_DB_ENTRY_CREATION_TIME_KEY) && result.first().get(Globals.MONGO_DB_ENTRY_CREATION_TIME_KEY) != null) {
-                    continue;
-                }
-                if(key.equals(Globals.MONGO_DB_USER_FIRST_MEET_TIMESTAMP_KEY) && result.first().get(Globals.MONGO_DB_USER_FIRST_MEET_TIMESTAMP_KEY) != null) {
-                    continue;
-                }
-                updatedDocument.put("$set", new BasicDBObject().append(key, values.get(key)));
-                updateCollection(collection, query, updatedDocument);
-            }
+//            BasicDBObject updatedDocument = new BasicDBObject();
+//            for (String key : values.keySet()) {
+//                if(key.equals(Globals.MONGO_DB_USER_ID_KEY) && result.first().get(Globals.MONGO_DB_USER_ID_KEY) != null) {
+//                    continue;
+//                }
+//                if(key.equals(Globals.MONGO_DB_ENTRY_CREATION_TIME_KEY) && result.first().get(Globals.MONGO_DB_ENTRY_CREATION_TIME_KEY) != null) {
+//                    continue;
+//                }
+//                if(key.equals(Globals.MONGO_DB_USER_FIRST_MEET_TIMESTAMP_KEY) && result.first().get(Globals.MONGO_DB_USER_FIRST_MEET_TIMESTAMP_KEY) != null) {
+//                    continue;
+//                }
+//                if(key.equals(Globals.MONGO_DB_USER_CONNECTION_TYPE_KEY) && result.first().get(Globals.MONGO_DB_USER_CONNECTION_TYPE_KEY) != null) {
+//                    continue;
+//                }
+//                if(key.equals(Globals.MONGO_DB_USER_CLICKED_KEY) && result.first().get(Globals.MONGO_DB_USER_CLICKED_KEY) != null) {
+//                    continue;
+//                }
+//                updatedDocument.put("$set", new BasicDBObject().append(key, values.get(key)));
+//                updateCollection(collection, query, updatedDocument);
+//            }
         }
     }
 

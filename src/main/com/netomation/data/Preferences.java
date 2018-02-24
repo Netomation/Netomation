@@ -32,9 +32,7 @@ public class Preferences {
 
     private void createWiniAndAttachFile() {
         try {
-            if(ini != null) {
-                ini = new Wini(file);
-            }
+            ini = new Wini(file);
         }
         catch (Exception exp) { exp.printStackTrace(); }
     }
@@ -50,17 +48,21 @@ public class Preferences {
                     if(initFile) {
                         if(field.get(Globals.class) instanceof String[])
                             pref.storeArray(field.getName(), (String[])field.get(Globals.class));
+                        else if(field.get(Globals.class) instanceof Object[])
+                            pref.storeArray(field.getName(), (Object[])field.get(Globals.class));
                         else
                             pref.store(Globals.GLOBAL_SECTION, field.getName(), field.get(Globals.class));
                     }
                     else {
                         if (field.get(Globals.class) instanceof String[])
                             field.set(Globals.class, pref.getArray(field.getName()));
+                        else if (field.get(Globals.class) instanceof Object[])
+                            field.set(Globals.class, pref.getArray(field.getName()));
                         else
                             field.set(Globals.class, pref.get(Globals.GLOBAL_SECTION, field.getName()));
                     }
             }
-            catch(Exception exp){exp.printStackTrace();}
+            catch(Exception exp){ exp.printStackTrace(); }
         }
     }
 
@@ -93,11 +95,12 @@ public class Preferences {
         ArrayList<String> toReturn = new ArrayList<>();
         Profile.Section sectionObj = ini.get(section);
         int iter = 1;
-        String temp = sectionObj.get("" + iter);
+        String temp = null;
+        try{temp = sectionObj.get("" + iter);}catch (Exception ignore){}
         while(temp != null) {
             toReturn.add(temp);
             iter++;
-            temp = sectionObj.get("" + iter);
+            try{temp = sectionObj.get("" + iter);}catch (Exception ignore){}
         }
         return toReturn.toArray(new String[toReturn.size()]);
     }

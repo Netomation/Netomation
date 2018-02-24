@@ -100,8 +100,21 @@ public abstract class SocialNetwork {
         private String description = null;
         private Object geoLocation = null;
         private Object language = null;
+        private boolean clicked = false;
         private String connectionType = Globals.ConnectionType.NONE;
         private Date firstMeetTimestamp = new Date();
+
+        public boolean getClicked() {
+            return clicked;
+        }
+
+        public void setClicked(boolean clicked) {
+            this.clicked = clicked;
+        }
+
+        public String getClickedDatabaseKey() {
+            return Globals.MONGO_DB_USER_CLICKED_KEY;
+        }
 
         public String getFirstName() {
             return firstName;

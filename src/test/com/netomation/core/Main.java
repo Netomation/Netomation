@@ -5,6 +5,7 @@ import main.com.netomation.api.SocialNetworkFactory;
 import main.com.netomation.api.TwitterWrapper;
 import main.com.netomation.cache.MongoCache;
 import main.com.netomation.data.Globals;
+import main.com.netomation.data.Messages;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -15,12 +16,6 @@ public class Main {
     static Dummy dummy = new Dummy();
 
     public static void main(String[] args) {
-
-        new Notifier().start();
-        dummy.doYourThing();
-
-        System.exit(0);
-
         MongoCache.getInstance().deleteAllDataFromDatabase();
         UserImpl user1 = new UserImpl(null);
         user1.setId(1);
@@ -54,6 +49,7 @@ public class Main {
         MongoCache.getInstance().followingUser(user2);
         MongoCache.getInstance().userStoppedFollowUs(user2);
 
+        System.out.println(Messages.generateMessage(4544365));
 
         System.exit(0);
 
@@ -63,17 +59,6 @@ public class Main {
             SocialNetwork.SocialNetworkUser user = twitter.getUser(twitter.getOwnID());
             MongoCache.getInstance().putToUsersTable(user);
         } catch (Exception exp){exp.printStackTrace();}
-    }
-
-
-    private static class Notifier extends Thread {
-        public void run() {
-            try{sleep(3000);}catch (Exception exp){exp.printStackTrace();}
-            synchronized (dummy) {
-                dummy.notify();
-            }
-
-        }
     }
 
     private static class UserImpl extends SocialNetwork.SocialNetworkUser {

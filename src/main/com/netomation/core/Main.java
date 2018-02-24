@@ -1,8 +1,10 @@
 package main.com.netomation.core;
 
+import com.mongodb.Mongo;
 import main.com.netomation.api.SocialNetwork;
 import main.com.netomation.api.SocialNetworkFactory;
 import main.com.netomation.api.TwitterWrapper;
+import main.com.netomation.cache.MongoCache;
 import main.com.netomation.data.Filter;
 import main.com.netomation.data.Globals;
 import main.com.netomation.data.Preferences;
@@ -17,7 +19,10 @@ public class Main {
     public static void main(String[] args) {
         initProgram();
         letUserReviewProperties();
+        System.out.println("Creating SocialNetwork instance.");
         socialNetwork = SocialNetworkFactory.getSocialNetwork(TwitterWrapper.class);
+        socialNetwork.setCredentials(Globals.CREDENTIALS);
+        System.out.println("Starting Listener");
         startListener();
     }
 
@@ -42,8 +47,15 @@ public class Main {
     }
 
     private static void initProgram() {
+        System.out.println("Setting up program.");
         Preferences.initPreferences();
         Filter.initFilter();
+        while(!MongoCache.validConnection()) {
+            System.out.println("Error while connecting to MongoDB (Press any key to try again)...");
+            try{System.in.read();}catch (Exception exp){exp.printStackTrace();}
+            Preferences.initPreferences();
+            Filter.initFilter();
+        }
     }
 
     private static void letUserReviewProperties() {

@@ -237,6 +237,7 @@ public class TwitterWrapper extends SocialNetwork {
             return false;
         }
         TwitterException twitterException = (TwitterException)exp;
+        System.out.println("A TwitterException has been thrown. Operation: " + type.toString());
         if(type == Globals.WaitingTypes.DONT_WAIT_JUST_TRY_AGAIN) {
             return true;
         } else if(type == Globals.WaitingTypes.WAIT_FIXED_TIME_AND_TRY_AGAIN) {

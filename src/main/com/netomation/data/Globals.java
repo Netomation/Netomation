@@ -28,6 +28,7 @@ public abstract class Globals {
     public static String MONGO_DB_FIRST_NAME_KEY = "first_name";
     public static String MONGO_DB_LAST_NAME_KEY = "last_name";
     public static String MONGO_DB_USER_PARENT_ID_KEY = "parent_id";
+    public static String MONGO_DB_USER_CLICKED_KEY = "clicked";
     public static String MONGO_DB_USER_CONNECTION_TYPE_KEY = "connection_type_to_user";
     public static String MONGO_DB_USER_DESCRIPTION_KEY = "user_description";
     public static String MONGO_DB_USER_GEO_LOCATION_KEY = "user_geographical_location";
@@ -80,20 +81,25 @@ public abstract class Globals {
     public static int DELAY_BEFORE_TRYING_OPERATION_AGAIN = 2 * 60 * 1000;
 
     // Messages
+    public static String DDNS = "www.netomation.com";
+    public static int DDNS_PORT = 14534;
     public static String[] MESSAGES = {
-            "Test_Message_1",
-            "Test_Message_2",
-            "Test_Message_3"
+            "SEKE'2018 = a surprising balance between Software and Knowledge. Call for papers: ",
+            "LATTICE = non-obvious topic for a special session: Conceptual Lattices. Call for papers: ",
+            "SEKE'2018 conference = medium size , high-quality, therefore fosters originality. Call for papers: ",
+            "LATTICE special session = rigorous Software Theory for use in practice. Call for papers: "
     };
 
     // SocialNetworkUserObject Related
     public static final String UNKNOWN_PARENT = "UNKNOWN_PARENT";
-    public static class ConnectionType {
+    public final static class ConnectionType {
         final public static String NONE = "NONE";
         final public static String FROM_ME = "FROM_ME";
         final public static String FROM_HIM = "FROM_HIM";
         final public static String BOTH = "BOTH";
     }
+
+    // Exception Handling Waiting Types
     public enum WaitingTypes {
         DONT_WAIT_JUST_TRY_AGAIN,
         WAIT_FIXED_TIME_AND_TRY_AGAIN ,
@@ -101,4 +107,5 @@ public abstract class Globals {
         WAIT_UNTIL_ORDERD_TO_TRY_AGAIN,
         DONT_TRY_AGAIN
     }
+
 }
