@@ -1,9 +1,6 @@
 package main.com.netomation.cache;
 
-import com.mongodb.BasicDBObject;
-import com.mongodb.DBObject;
-import com.mongodb.MongoClient;
-import com.mongodb.ServerAddress;
+import com.mongodb.*;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
@@ -14,10 +11,7 @@ import org.bson.Document;
 import org.bson.conversions.Bson;
 
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.HashMap;
+import java.util.*;
 
 public class MongoCache {
 
@@ -34,7 +28,9 @@ public class MongoCache {
 
     public static boolean validConnection() {
         try {
-            new MongoClient(Globals.MONGO_DB_ADDRESS, Globals.MONGO_DB_PORT).getAddress();
+            MongoCredential credential = MongoCredential.createCredential(Globals.MONGO_DB_CONNECTION_USERNAME, "admin", Globals.MONGO_DB_CONNECTION_PASSWORD.toCharArray());
+            MongoClientOptions options = new MongoClientOptions.Builder().build();
+            new MongoClient(new ServerAddress(Globals.MONGO_DB_ADDRESS, Globals.MONGO_DB_PORT),credential, options).getAddress();
             return true;
         } catch (Exception exp) {return false;}
     }
@@ -44,7 +40,9 @@ public class MongoCache {
     }
 
     private void connect() {
-        mongoClient = new MongoClient(Globals.MONGO_DB_ADDRESS, Globals.MONGO_DB_PORT);
+        MongoCredential credential = MongoCredential.createCredential(Globals.MONGO_DB_CONNECTION_USERNAME, "admin", Globals.MONGO_DB_CONNECTION_PASSWORD.toCharArray());
+        MongoClientOptions options = new MongoClientOptions.Builder().build();
+        mongoClient = new MongoClient(new ServerAddress(Globals.MONGO_DB_ADDRESS, Globals.MONGO_DB_PORT),credential, options);
         database = mongoClient.getDatabase(Globals.MONGO_DB_DATABASE_NAME);
     }
 

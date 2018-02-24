@@ -43,7 +43,9 @@ public abstract class Globals {
     public static String MONGO_DB_DATABASE_NAME = "netomation";
     public static String MONGO_DB_USERS_COLLECTION_NAME = "users";
     public static String MONGO_DB_ADDRESS = "localhost";
-    public static int MONGO_DB_PORT = 27017;
+    public static String MONGO_DB_CONNECTION_USERNAME = "avihu";
+    public static String MONGO_DB_CONNECTION_PASSWORD = "netomation123456";
+    public static int MONGO_DB_PORT = 27019;
 
     // Filter Related
     public static int MIN_AGE_FILTER = -1;
