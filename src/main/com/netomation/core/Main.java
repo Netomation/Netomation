@@ -9,6 +9,9 @@ import main.com.netomation.data.Filter;
 import main.com.netomation.data.Globals;
 import main.com.netomation.data.Preferences;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class Main {
 
     private static Worker worker;
@@ -22,20 +25,29 @@ public class Main {
         System.out.println("Creating SocialNetwork instance.");
         socialNetwork = SocialNetworkFactory.getSocialNetwork(TwitterWrapper.class);
         socialNetwork.setCredentials(Globals.CREDENTIALS);
-        System.out.println("Starting Listener");
+        listener = new Listener(socialNetwork);
+        worker = new Worker(socialNetwork);
         startListener();
+        try{listener.join();}catch (Exception exp){exp.printStackTrace();}
+        try{worker.join();}catch (Exception exp){exp.printStackTrace();}
     }
 
     public static void startWorker() {
+        System.out.println("Starting Worker");
         if(worker == null) {
             worker = new Worker(socialNetwork);
+            worker.start();
+        } else if(!worker.isInterrupted()) {
             worker.start();
         }
     }
 
     public static void startListener() {
+        System.out.println("Starting Listener");
         if(listener == null) {
             listener = new Listener(socialNetwork);
+            listener.start();
+        } else if(!listener.isInterrupted()) {
             listener.start();
         }
     }
@@ -48,6 +60,8 @@ public class Main {
 
     private static void initProgram() {
         System.out.println("Setting up program.");
+        Logger mongoLogger = Logger.getLogger("org.mongodb.driver");
+        mongoLogger.setLevel(Level.SEVERE);
         Preferences.initPreferences();
         Filter.initFilter();
         while(!MongoCache.validConnection()) {

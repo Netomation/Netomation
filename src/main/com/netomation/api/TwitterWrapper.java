@@ -66,7 +66,7 @@ public class TwitterWrapper extends SocialNetwork {
         while (execute) {
             execute = false;
             try {
-                relationship = twitter.showFriendship((Long) getOwnID(), (Long) user.getId());
+                relationship = twitter.showFriendship(Long.parseLong(getOwnID().toString()), Long.parseLong(user.getId().toString()));
             } catch (Exception exp) {
                 execute = handleException(exp);
             }
@@ -91,7 +91,7 @@ public class TwitterWrapper extends SocialNetwork {
         while(execute) {
             execute = false;
             try {
-                twitter.createFriendship((Long)id);
+                twitter.createFriendship(Long.parseLong(id.toString()));
                 return true;
             } catch (Exception exp) {execute = handleException(exp);}
         }
@@ -118,7 +118,7 @@ public class TwitterWrapper extends SocialNetwork {
         while(execute) {
             execute = false;
             try {
-                return new TwitterUser(twitter.showUser((Long)id));
+                return new TwitterUser(twitter.showUser(Long.parseLong(id.toString())));
             } catch (TwitterException exp) { execute = handleException(exp); }
         }
         return null;
@@ -139,11 +139,12 @@ public class TwitterWrapper extends SocialNetwork {
 
     @Override
     public boolean sendPrivateMessage(Object id, String msg) {
+//        return true;
         boolean execute = true;
         while(execute) {
             execute = false;
             try {
-                twitter.sendDirectMessage((Long)id, msg);
+                twitter.sendDirectMessage(Long.parseLong(id.toString()), msg);
                 return true;
             } catch (Exception exp) {execute = handleException(exp);}
         }
@@ -218,7 +219,7 @@ public class TwitterWrapper extends SocialNetwork {
                 while(execute) {
                     execute = false;
                     try {
-                        ids = twitter.getFollowersIDs((Long) this.getId(), cursor);
+                        ids = twitter.getFollowersIDs(Long.parseLong(this.getId().toString()), cursor);
                     } catch (Exception exp){execute = handleException(exp);}
                 }
                 for (long id : ids.getIDs()) {

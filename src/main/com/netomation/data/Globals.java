@@ -76,11 +76,11 @@ public abstract class Globals {
     };
 
     // Execution Related
-    public static Object[] START_GROUP_IDS = {"*Enter IDs Here*"};
+    public static Object[] START_GROUP_IDS = {1325385696};
 
     // Delays
-    public static int DELAY_BEFORE_INTERACTING_WITH_NEXT_USER = 60 * 1000;
-    public static int DELAY_BEFORE_TRYING_OPERATION_AGAIN = 2 * 60 * 1000;
+    public static int DELAY_BEFORE_INTERACTING_WITH_NEXT_USER = 2 * 60 * 1000;
+    public static int DELAY_BEFORE_TRYING_OPERATION_AGAIN = 3 * 60 * 1000;
 
     // Messages
     public static String DDNS = "www.netomation.com";

@@ -6,17 +6,34 @@ import main.com.netomation.api.TwitterWrapper;
 import main.com.netomation.cache.MongoCache;
 import main.com.netomation.data.Globals;
 import main.com.netomation.data.Messages;
+import twitter4j.Twitter;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Random;
 
 public class Main {
 
     static Dummy dummy = new Dummy();
 
     public static void main(String[] args) {
+        System.out.println(getTwitterID("IaakovExman"));
+        System.exit(0);
         MongoCache.getInstance().deleteAllDataFromDatabase();
+
+        for(long i = 25000000 ; i < (25000000 + 100000) ; i++) {
+            UserImpl user = new UserImpl(null);
+            user.setId(i);
+            user.setFirstName(getRandomString());
+            user.setLastName(getRandomString());
+            user.setGeoLocation(getRandomString());
+            user.setDescription(getRandomString());
+            user.setLanguage(getRandomString());
+            MongoCache.getInstance().putToUsersTable(user);
+        }
+
+        System.exit(0);
         UserImpl user1 = new UserImpl(null);
         user1.setId(1);
         user1.setFirstName("Avihu");
@@ -59,6 +76,24 @@ public class Main {
             SocialNetwork.SocialNetworkUser user = twitter.getUser(twitter.getOwnID());
             MongoCache.getInstance().putToUsersTable(user);
         } catch (Exception exp){exp.printStackTrace();}
+    }
+
+    private static String getRandomString() {
+        String chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        Random rand = new Random();
+        StringBuilder toReturn = new StringBuilder();
+        for(int i = 0 ; i < 8 ; i++)
+            toReturn.append(chars.charAt(rand.nextInt(chars.length())));
+        return toReturn.toString();
+    }
+
+    private static long getTwitterID(String name) {
+        SocialNetwork socialNetwork = SocialNetworkFactory.getSocialNetwork(TwitterWrapper.class);
+        socialNetwork.setCredentials(Globals.CREDENTIALS);
+        try {
+            return ((Twitter)socialNetwork.expose()).showUser(name).getId();
+        } catch (Exception exp) {exp.printStackTrace();}
+        return -1;
     }
 
     private static class UserImpl extends SocialNetwork.SocialNetworkUser {
@@ -107,6 +142,7 @@ public class Main {
             return null;
         }
     }
+
 
 
 

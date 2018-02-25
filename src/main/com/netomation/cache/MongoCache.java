@@ -9,9 +9,12 @@ import main.com.netomation.api.SocialNetwork;
 import main.com.netomation.data.Globals;
 import org.bson.Document;
 import org.bson.conversions.Bson;
+import twitter4j.LoggerFactory;
 
 import java.lang.reflect.Method;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class MongoCache {
 

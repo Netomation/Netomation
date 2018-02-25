@@ -47,23 +47,21 @@ public abstract class SocialNetwork {
         return activeUsersList;
     }
 
-    public boolean updateActiveUsersList() {
+    public int updateActiveUsersList(int i) {
         if (activeUsersList.size() == 0) {
             for (Object id : Globals.START_GROUP_IDS)
                 activeUsersList.add(getUser(id));
-            return true;
+            return activeUsersList.size();
         }
-        boolean toReturn = false;
-        ArrayList<SocialNetworkUser> toCombine = new ArrayList<>();
-        for (SocialNetworkUser user : activeUsersList) {
-            ArrayList<SocialNetworkUser> temp = getExpansionGroupByUser(user.id);
-            if (temp == null || temp.size() <= 0)
-                continue;
-            toReturn = true;
-            toCombine.addAll(temp);
+        ArrayList<SocialNetworkUser> toCombine = getExpansionGroupByUser(activeUsersList.get(i).id);
+        if (toCombine == null || toCombine.size() <= 0) {
+            if(i == activeUsersList.size()-1) {
+                return -1;
+            }
+            return 0;
         }
         activeUsersList.addAll(toCombine);
-        return toReturn;
+        return toCombine.size();
     }
 
     public boolean blockUser(Object id) {

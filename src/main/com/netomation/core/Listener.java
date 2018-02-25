@@ -41,16 +41,15 @@ public class Listener extends Thread {
             public void onUnfavorite(User user, User user1, Status status) { }
             @Override
             public void onFollow(User user, User user1) {
-
-                if(user.getId() != Long.parseLong(socialNetwork.getOwnID().toString()) && user1.getId() == Long.parseLong(socialNetwork.getOwnID().toString())) {
-                    System.out.println("User: " + user.getScreenName() + " started following us.");
+                if(!String.valueOf(user.getId()).equals(socialNetwork.getOwnID().toString()) && String.valueOf(user1.getId()).equals(socialNetwork.getOwnID().toString())) {
+                    System.out.println("User: " + user.getName() + " started following us.");
                     MongoCache.getInstance().userFollowUs(socialNetwork.getUser(user.getId()));
                 }
             }
             @Override
             public void onUnfollow(User user, User user1) {
-                if(user.getId() != Long.parseLong(socialNetwork.getOwnID().toString()) && user1.getId() == Long.parseLong(socialNetwork.getOwnID().toString())) {
-                    System.out.println("User: " + user.getScreenName() + " stopped following us.");
+                if(!String.valueOf(user.getId()).equals(socialNetwork.getOwnID().toString()) && String.valueOf(user1.getId()).equals(socialNetwork.getOwnID().toString())) {
+                    System.out.println("User: " + user.getName() + " stopped following us.");
                     MongoCache.getInstance().userStoppedFollowUs(socialNetwork.getUser(user.getId()));
                 }
             }
@@ -95,13 +94,15 @@ public class Listener extends Thread {
             @Override
             public void onStallWarning(StallWarning stallWarning) { }
         });
+        socialNetworkStream.user();
+        while(true){try{Listener.class.wait();}catch(Exception ignore){}}
     }
 
     private void receivedMessage(DirectMessage directMessage) {
-        if(directMessage.getSender().equals(socialNetwork.getOwnID())) {
+        if(String.valueOf(directMessage.getSender().getId()).equals(socialNetwork.getOwnID().toString())) {
             return;
         }
-        System.out.println("User: " + directMessage.getSender() + " sent private message.");
+        System.out.println("User: " + directMessage.getSender().getName() + " sent private message.");
         SocialNetwork.SocialNetworkPrivateMessage message = socialNetwork.mapPrivateMessage(directMessage);
         SocialNetwork.SocialNetworkUser messageFrom = socialNetwork.getUser(directMessage.getSenderId());
         MongoCache.getInstance().putToUsersTable(messageFrom);
