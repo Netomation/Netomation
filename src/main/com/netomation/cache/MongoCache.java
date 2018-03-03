@@ -8,9 +8,13 @@ import com.sun.xml.internal.ws.api.model.MEP;
 import main.com.netomation.api.SocialNetwork;
 import main.com.netomation.data.Globals;
 import org.bson.Document;
+import org.bson.codecs.configuration.CodecRegistries;
+import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.conversions.Bson;
 import twitter4j.LoggerFactory;
 
+import javax.print.Doc;
+import javax.print.attribute.standard.DocumentName;
 import java.lang.reflect.Method;
 import java.util.*;
 import java.util.logging.Level;
@@ -19,7 +23,6 @@ import java.util.logging.Logger;
 public class MongoCache {
 
     private static MongoCache instance = null;
-    private MongoClient mongoClient = null;
     private MongoDatabase database = null;
 
     public synchronized static MongoCache getInstance() {
@@ -45,7 +48,7 @@ public class MongoCache {
     private void connect() {
         MongoCredential credential = MongoCredential.createCredential(Globals.MONGO_DB_CONNECTION_USERNAME, "admin", Globals.MONGO_DB_CONNECTION_PASSWORD.toCharArray());
         MongoClientOptions options = new MongoClientOptions.Builder().build();
-        mongoClient = new MongoClient(new ServerAddress(Globals.MONGO_DB_ADDRESS, Globals.MONGO_DB_PORT),credential, options);
+        MongoClient mongoClient = new MongoClient(new ServerAddress(Globals.MONGO_DB_ADDRESS, Globals.MONGO_DB_PORT), credential, options);
         database = mongoClient.getDatabase(Globals.MONGO_DB_DATABASE_NAME);
     }
 
@@ -97,6 +100,10 @@ public class MongoCache {
     }
 
     public void putToUsersTable(SocialNetwork.SocialNetworkUser user) {
+        putToUsersTable(parseSocialNetworkUserToHashMap(user));
+    }
+
+    private HashMap<String, Object> parseSocialNetworkUserToHashMap(SocialNetwork.SocialNetworkUser user) {
         HashMap<String, Object> values = new HashMap<>();
         Method[] methods = user.getClass().getMethods();
         for(Method method : methods) {
@@ -109,7 +116,7 @@ public class MongoCache {
                 catch (Exception e) { e.printStackTrace(); }
             }
         }
-        putToUsersTable(values);
+        return values;
     }
 
     // Dont call this method without making sure the DB has entry with the same ID
@@ -143,8 +150,8 @@ public class MongoCache {
     }
 
     public void deleteAllDataFromDatabase() {
-        MongoCollection<Document> collection = database.getCollection(Globals.MONGO_DB_USERS_COLLECTION_NAME);
-        collection.drop();
+        database.getCollection(Globals.MONGO_DB_USERS_COLLECTION_NAME).drop();
+        database.getCollection(Globals.MONGO_DB_ACTIVE_USERS_COLLECTION_NAME).drop();
     }
 
     public void followingUser(SocialNetwork.SocialNetworkUser user) {
@@ -218,11 +225,69 @@ public class MongoCache {
     }
 
     public boolean userExistInDB(Object id) {
+        return getUserDocumentById(id) != null;
+    }
+
+    private Document getUserDocumentById(Object id) {
         MongoCollection<Document> collection = database.getCollection(Globals.MONGO_DB_USERS_COLLECTION_NAME);
         BasicDBObject query = new BasicDBObject();
         query.put(Globals.MONGO_DB_USER_ID_KEY, id);
         FindIterable<Document> result = collection.find(query);
-        return result.first() != null;
+        return result.first();
     }
 
+    public void updateActiveUsers(ArrayList<SocialNetwork.SocialNetworkUser> queue, int arrayIndex, int updateFromIndex) {
+        database.getCollection(Globals.MONGO_DB_ACTIVE_USERS_COLLECTION_NAME).drop();
+        Document document = new Document();
+        document.put(Globals.MONGO_DB_ACTIVE_USERS_COLLECTION_NAME, Globals.MONGO_DB_ACTIVE_USERS_COLLECTION_NAME);
+        document.put(Globals.MONGO_DB_ACTIVE_USERS_QUEUE, parseSocialNetworkUsersToIds(queue));
+        document.put(Globals.MONGO_DB_ACTIVE_USERS_ARRAY_INDEX, arrayIndex);
+        document.put(Globals.MONGO_DB_ACTIVE_USERS_UPDATE_FROM_INDEX, updateFromIndex);
+        database.getCollection(Globals.MONGO_DB_ACTIVE_USERS_COLLECTION_NAME).insertOne(document);
+    }
+
+    public ArrayList<Object> parseSocialNetworkUsersToIds(ArrayList<SocialNetwork.SocialNetworkUser> queue) {
+        ArrayList<Object> toReturn = new ArrayList<>();
+        for(SocialNetwork.SocialNetworkUser user : queue)
+            toReturn.add(user.getId());
+        return toReturn;
+    }
+
+    public ArrayList<Object> getQueueFromLastRunning() {
+        Document doc =  getQueueDocument();
+        if(doc == null) {
+            return null;
+        }
+        return (ArrayList<Object>)doc.get(Globals.MONGO_DB_ACTIVE_USERS_QUEUE);
+    }
+
+    public int getArrayIndexQueueFromLastRunning() {
+        Document result = getQueueDocument();
+        if(result == null) {
+            return 0;
+        }
+        return result.getInteger(Globals.MONGO_DB_ACTIVE_USERS_ARRAY_INDEX);
+    }
+
+    public int getUpdateFromIndexQueueFromLastRunning() {
+        Document result = getQueueDocument();
+        if(result == null) {
+            return 0;
+        }
+        return result.getInteger(Globals.MONGO_DB_ACTIVE_USERS_UPDATE_FROM_INDEX);
+    }
+
+    private Document getQueueDocument() {
+        BasicDBObject query = new BasicDBObject();
+        query.put(Globals.MONGO_DB_ACTIVE_USERS_COLLECTION_NAME, Globals.MONGO_DB_ACTIVE_USERS_COLLECTION_NAME);
+        return database.getCollection(Globals.MONGO_DB_ACTIVE_USERS_COLLECTION_NAME).find(query).first();
+    }
+
+    public String getDbKeyByUserId(Object id) {
+        Document doc = getUserDocumentById(id);
+        if(doc == null) {
+            return "";
+        }
+        return doc.get("_id").toString();
+    }
 }

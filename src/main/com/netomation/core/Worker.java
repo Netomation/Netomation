@@ -16,20 +16,23 @@ public class Worker extends Thread {
     }
 
     public void run() {
+        int arrayIndex = MongoCache.getInstance().getArrayIndexQueueFromLastRunning();
+        int updateFromIndex = MongoCache.getInstance().getUpdateFromIndexQueueFromLastRunning();
         System.out.println("Initial update of users list.");
         socialNetwork.updateActiveUsersList(-1);
-        int arrayIndex = 0, updateFromIndex = 0;
         while(true) {
             for(; arrayIndex < socialNetwork.getActiveUsersList().size() ; arrayIndex++) {
                 SocialNetwork.SocialNetworkUser user = socialNetwork.getActiveUsersList().get(arrayIndex);
+                System.out.println("Worker delaying...");
+                delay(Globals.DELAY_BEFORE_INTERACTING_WITH_NEXT_USER);
+                System.out.println("Worker done delaying, going on.");
                 if(socialNetwork.shouldContactUser(user) && !userIsFromInitGroup(user) && socialNetwork.canSendPrivateMessage(user)) {
-                    delay(Globals.DELAY_BEFORE_INTERACTING_WITH_NEXT_USER);
+                    MongoCache.getInstance().putToUsersTable(user);
                     String message = Messages.generateMessage(user.getId());
                     SocialNetwork.SocialNetworkPrivateMessage privateMessage = Main.generatePrivateMessageObject(user, message);
                     System.out.println("Trying to send message to user: " + user.getFirstName() + " " + user.getLastName());
                     socialNetwork.sendPrivateMessage(user.getId(), message);
                     System.out.println("successfully sent a private message.");
-                    MongoCache.getInstance().putToUsersTable(user);
                     MongoCache.getInstance().addMessageToUser(user.getId(), privateMessage);
                     System.out.println("Trying to follow: " + user.getFirstName() + " " + user.getLastName());
                     if(socialNetwork.createFriendship(user.getId())) {
@@ -49,6 +52,7 @@ public class Worker extends Thread {
                     break;
                 }
             }
+            MongoCache.getInstance().updateActiveUsers(socialNetwork.getActiveUsersList(), arrayIndex, updateFromIndex);
         }
     }
 

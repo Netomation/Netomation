@@ -238,7 +238,7 @@ public class TwitterWrapper extends SocialNetwork {
             return false;
         }
         TwitterException twitterException = (TwitterException)exp;
-        System.out.println("A TwitterException has been thrown. Operation: " + type.toString());
+        System.out.println("A TwitterException has been thrown. Operation: " + type.toString() + "\n(Message: " + exp.getMessage() + ")");
         if(type == Globals.WaitingTypes.DONT_WAIT_JUST_TRY_AGAIN) {
             return true;
         } else if(type == Globals.WaitingTypes.WAIT_FIXED_TIME_AND_TRY_AGAIN) {
@@ -247,7 +247,7 @@ public class TwitterWrapper extends SocialNetwork {
         } else if(type == Globals.WaitingTypes.WAIT_SPECIFIC_TIME_AND_TRY_AGAIN) {
             int time = twitterException.getRateLimitStatus().getSecondsUntilReset();
             System.out.println("Waiting for " + time + " seconds...");
-            Main.delay(time + 5);
+            Main.delay(1000* (time + 5));
             return true;
         } else if(type == Globals.WaitingTypes.WAIT_UNTIL_ORDERD_TO_TRY_AGAIN) {
             System.out.println("Waiting for new credentials...");

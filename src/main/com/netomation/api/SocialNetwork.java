@@ -1,5 +1,6 @@
 package main.com.netomation.api;
 
+import main.com.netomation.cache.MongoCache;
 import main.com.netomation.data.Globals;
 import org.bson.BsonReader;
 import org.bson.BsonWriter;
@@ -49,8 +50,12 @@ public abstract class SocialNetwork {
 
     public int updateActiveUsersList(int i) {
         if (activeUsersList.size() == 0) {
-            for (Object id : Globals.START_GROUP_IDS)
-                activeUsersList.add(getUser(id));
+            activeUsersList = convertIDsArrayToSocialNetworkUsers(MongoCache.getInstance().getQueueFromLastRunning());
+            if(activeUsersList == null) {
+                activeUsersList = new ArrayList<>();
+                for (Object id : Globals.START_GROUP_IDS)
+                    activeUsersList.add(getUser(id));
+            }
             return activeUsersList.size();
         }
         ArrayList<SocialNetworkUser> toCombine = getExpansionGroupByUser(activeUsersList.get(i).id);
@@ -62,6 +67,17 @@ public abstract class SocialNetwork {
         }
         activeUsersList.addAll(toCombine);
         return toCombine.size();
+    }
+
+    public ArrayList<SocialNetworkUser> convertIDsArrayToSocialNetworkUsers(ArrayList<Object> ids) {
+        if(ids == null) {
+            return null;
+        }
+        ArrayList<SocialNetworkUser> toReturn = new ArrayList<>();
+        for(Object id : ids) {
+            toReturn.add(getUser(id));
+        }
+        return toReturn;
     }
 
     public boolean blockUser(Object id) {
@@ -241,6 +257,34 @@ public abstract class SocialNetwork {
         public void setConnectionType(String connectionType) {
             this.connectionType = connectionType;
         }
+
+        public class SocialNetworkUserCodec implements Codec<SocialNetworkUser> {
+
+            @Override
+            public SocialNetworkUser decode(BsonReader reader, DecoderContext decoderContext) {
+                return null;
+            }
+
+            @Override
+            public void encode(BsonWriter writer, SocialNetworkUser value, EncoderContext encoderContext) {
+                writer.writeString(Globals.MONGO_DB_FIRST_NAME_KEY, value.getFirstName());
+                writer.writeString(Globals.MONGO_DB_LAST_NAME_KEY, value.getLastName());
+                writer.writeString(Globals.MONGO_DB_USER_ID_KEY, value.getId().toString());
+                writer.writeString(Globals.MONGO_DB_USER_PARENT_ID_KEY, value.getParentId().toString());
+                writer.writeString(Globals.MONGO_DB_USER_DESCRIPTION_KEY, value.getDescription());
+                writer.writeString(Globals.MONGO_DB_USER_GEO_LOCATION_KEY, value.getGeoLocation().toString());
+                writer.writeString(Globals.MONGO_DB_USER_LANGUAGE_KEY, value.getLanguage().toString());
+                writer.writeString(Globals.MONGO_DB_USER_CONNECTION_TYPE_KEY, value.getConnectionType());
+                writer.writeBoolean(Globals.MONGO_DB_USER_CLICKED_KEY, value.getClicked());
+                writer.writeDateTime(Globals.MONGO_DB_USER_FIRST_MEET_TIMESTAMP_KEY, value.getFirstMeetTimestamp().getTime());
+            }
+
+            @Override
+            public Class<SocialNetworkUser> getEncoderClass() {
+                return SocialNetworkUser.class;
+            }
+        }
+
     }
 
     public static class SocialNetworkPrivateMessage {

@@ -11,13 +11,9 @@ public abstract class Globals {
 
     // File names
     public static final String PREFERENCES_FILE_NAME = "netomation_data.ini";
-    public static final String CACHE_FILE_NAME = "netomation_cache.data";
-    public static final String JSON_FILE_NAME = "netomation_cache.json";
 
     // File paths
     public static final String BASE_FILES_LOCATION = (new JFileChooser()).getFileSystemView().getDefaultDirectory().toString();
-    public static String CACHE_FILE_PATH = BASE_FILES_LOCATION + File.separator + CACHE_FILE_NAME;
-    public static String JSON_FILE_PATH = BASE_FILES_LOCATION + File.separator + JSON_FILE_NAME;
 
     // Preferences Related
     public static final String GLOBAL_SECTION = "PREFERENCES";
@@ -42,6 +38,10 @@ public abstract class Globals {
     public static String MONGO_DB_MESSAGE_CONTENT_KEY = "content";
     public static String MONGO_DB_DATABASE_NAME = "netomation";
     public static String MONGO_DB_USERS_COLLECTION_NAME = "users";
+    public static String MONGO_DB_ACTIVE_USERS_COLLECTION_NAME = "active_path";
+    public static String MONGO_DB_ACTIVE_USERS_QUEUE = "queue";
+    public static String MONGO_DB_ACTIVE_USERS_ARRAY_INDEX = "array_index";
+    public static String MONGO_DB_ACTIVE_USERS_UPDATE_FROM_INDEX = "update_from_index";
     public static String MONGO_DB_ADDRESS = "localhost";
     public static String MONGO_DB_CONNECTION_USERNAME = "avihu";
     public static String MONGO_DB_CONNECTION_PASSWORD = "netomation123456";
@@ -69,21 +69,22 @@ public abstract class Globals {
     };
 
     public static String[] CREDENTIALS = {
-            "9xjQZs17bpUCHvCG9pokGdJzi",
-            "N7VKHt22ItDJhXqW4sjuS2Ea7CFdOc1Oa8Bu2NOTGIVHpzs7XW",
-            "892388780753211392-JfFbaWlpfQb03rxQV6hZEBu12SDr3Sl",
-            "SosL4XiNEBAtVGX7J7ElU9ptgqNWS0leK2vbO8nWN28dv"
+            "JHxulAsTHGTdlmvZuQFOnefxD",
+            "JTybvBqSVPLIXabHDvRN9svlCpfgoE9c8J4SiY1ckbJC0ZERu8",
+            "969623122927333377-frO6w6tiCzGWHgN0OvbefGA0SydbweE",
+            "LUkeYAcI9y69IBRK6wBEskzSI5Vc34VRqnG9Bve6Nt2Ip"
     };
 
     // Execution Related
     public static Object[] START_GROUP_IDS = {1325385696};
 
     // Delays
-    public static int DELAY_BEFORE_INTERACTING_WITH_NEXT_USER = 2 * 60 * 1000;
-    public static int DELAY_BEFORE_TRYING_OPERATION_AGAIN = 3 * 60 * 1000;
+    public static int DELAY_BEFORE_INTERACTING_WITH_NEXT_USER = 60 * 1000;
+    public static int DELAY_BEFORE_TRYING_OPERATION_AGAIN = 2 * 60 * 1000;
 
     // Messages
-    public static String DDNS = "www.netomation.com";
+    public static String CALL_FOR_PAPERS_URL = "http://ksiresearchorg.ipage.com/seke/seke18.html";
+    public static String DDNS = "stud-twitter.jce.ac.il";
     public static int DDNS_PORT = 14534;
     public static String[] MESSAGES = {
             "SEKE'2018 = a surprising balance between Software and Knowledge. Call for papers: ",
