@@ -5,6 +5,8 @@ import main.com.netomation.cache.MongoCache;
 import main.com.netomation.data.Globals;
 import main.com.netomation.data.Messages;
 
+import java.util.Random;
+
 import static main.com.netomation.core.Main.delay;
 
 public class Worker extends Thread {
@@ -24,7 +26,7 @@ public class Worker extends Thread {
             for(; arrayIndex < socialNetwork.getActiveUsersList().size() ; arrayIndex++) {
                 SocialNetwork.SocialNetworkUser user = socialNetwork.getActiveUsersList().get(arrayIndex);
                 System.out.println("Worker delaying...");
-                delay(Globals.DELAY_BEFORE_INTERACTING_WITH_NEXT_USER);
+                delay(Globals.DELAY_BEFORE_INTERACTING_WITH_NEXT_USER + new Random().nextInt(Globals.DELAY_BEFORE_INTERACTING_WITH_NEXT_USER_RANDOM_OFFSET));
                 System.out.println("Worker done delaying, going on.");
                 if(socialNetwork.shouldContactUser(user) && !userIsFromInitGroup(user) && socialNetwork.canSendPrivateMessage(user)) {
                     MongoCache.getInstance().putToUsersTable(user);

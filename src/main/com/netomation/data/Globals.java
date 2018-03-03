@@ -79,8 +79,12 @@ public abstract class Globals {
     public static Object[] START_GROUP_IDS = {1325385696};
 
     // Delays
-    public static int DELAY_BEFORE_INTERACTING_WITH_NEXT_USER = 60 * 1000;
-    public static int DELAY_BEFORE_TRYING_OPERATION_AGAIN = 2 * 60 * 1000;
+    public static int DELAY_BEFORE_INTERACTING_WITH_NEXT_USER = 20 * 1000;
+    public static int DELAY_BEFORE_INTERACTING_WITH_NEXT_USER_RANDOM_OFFSET = 40 * 1000;
+    public static int DELAY_BEFORE_TRYING_OPERATION_AGAIN = 60 * 1000;
+    public static int DELAY_BEFORE_TRYING_OPERATION_AGAIN_RANDOM_OFFSET = 50 * 1000;
+    public static int DELAY_BEFORE_TRYING_OPERATION_AGAIN_FOR_AUTOMATION_ERROR = 20 * 60 * 1000;
+    public static int DELAY_BEFORE_TRYING_OPERATION_AGAIN_FOR_AUTOMATION_ERROR_RANDOM_OFFSET = 10 * 60 * 1000;
 
     // Messages
     public static String CALL_FOR_PAPERS_URL = "http://ksiresearchorg.ipage.com/seke/seke18.html";
@@ -108,7 +112,8 @@ public abstract class Globals {
         WAIT_FIXED_TIME_AND_TRY_AGAIN ,
         WAIT_SPECIFIC_TIME_AND_TRY_AGAIN,
         WAIT_UNTIL_ORDERD_TO_TRY_AGAIN,
-        DONT_TRY_AGAIN
+        DONT_TRY_AGAIN,
+        BOT_DETECTED
     }
 
 }

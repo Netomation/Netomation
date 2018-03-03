@@ -10,6 +10,7 @@ import twitter4j.conf.ConfigurationBuilder;
 
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.Random;
 
 
 public class TwitterWrapper extends SocialNetwork {
@@ -242,7 +243,7 @@ public class TwitterWrapper extends SocialNetwork {
         if(type == Globals.WaitingTypes.DONT_WAIT_JUST_TRY_AGAIN) {
             return true;
         } else if(type == Globals.WaitingTypes.WAIT_FIXED_TIME_AND_TRY_AGAIN) {
-            Main.delay(Globals.DELAY_BEFORE_TRYING_OPERATION_AGAIN);
+            Main.delay(Globals.DELAY_BEFORE_TRYING_OPERATION_AGAIN + new Random().nextInt(Globals.DELAY_BEFORE_TRYING_OPERATION_AGAIN_RANDOM_OFFSET));
             return true;
         } else if(type == Globals.WaitingTypes.WAIT_SPECIFIC_TIME_AND_TRY_AGAIN) {
             int time = twitterException.getRateLimitStatus().getSecondsUntilReset();
@@ -252,13 +253,16 @@ public class TwitterWrapper extends SocialNetwork {
         } else if(type == Globals.WaitingTypes.WAIT_UNTIL_ORDERD_TO_TRY_AGAIN) {
             System.out.println("Waiting for new credentials...");
             while(!credentialsChanged())
-                Main.delay(Globals.DELAY_BEFORE_TRYING_OPERATION_AGAIN);
+                Main.delay(Globals.DELAY_BEFORE_TRYING_OPERATION_AGAIN + new Random().nextInt(Globals.DELAY_BEFORE_TRYING_OPERATION_AGAIN_RANDOM_OFFSET));
             configuration = null;
             setCredentials(Globals.CREDENTIALS);
             initTwitterObject();
             return true;
         } else if(type == Globals.WaitingTypes.DONT_TRY_AGAIN) {
             return false;
+        } else if(type == Globals.WaitingTypes.BOT_DETECTED) {
+            Main.delay(Globals.DELAY_BEFORE_TRYING_OPERATION_AGAIN_FOR_AUTOMATION_ERROR + new Random().nextInt(Globals.DELAY_BEFORE_TRYING_OPERATION_AGAIN_FOR_AUTOMATION_ERROR_RANDOM_OFFSET));
+            return true;
         }
         return false;
     }
@@ -321,7 +325,7 @@ public class TwitterWrapper extends SocialNetwork {
             case 205: return Globals.WaitingTypes.WAIT_FIXED_TIME_AND_TRY_AGAIN;
             case 215: return Globals.WaitingTypes.WAIT_UNTIL_ORDERD_TO_TRY_AGAIN;
             case 220: return Globals.WaitingTypes.WAIT_UNTIL_ORDERD_TO_TRY_AGAIN;
-            case 226: return Globals.WaitingTypes.WAIT_FIXED_TIME_AND_TRY_AGAIN;
+            case 226: return Globals.WaitingTypes.BOT_DETECTED;
             case 231: return Globals.WaitingTypes.WAIT_UNTIL_ORDERD_TO_TRY_AGAIN;
             case 251: return Globals.WaitingTypes.DONT_TRY_AGAIN;
             case 261: return Globals.WaitingTypes.WAIT_UNTIL_ORDERD_TO_TRY_AGAIN;
