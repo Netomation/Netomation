@@ -114,6 +114,13 @@ public class TwitterWrapper extends SocialNetwork {
     }
 
     @Override
+    public boolean isConnected() {
+        try {twitter.getId(); return true;}
+        catch (TwitterException ignore) {}
+        return false;
+    }
+
+    @Override
     public SocialNetworkUser getUser(Object id) {
         boolean execute = true;
         while(execute) {

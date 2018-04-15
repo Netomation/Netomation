@@ -7,12 +7,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9944a8b4-8004-4141-b997-76cf61f96f5e" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/com/netomation/core/WebsiteListener.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/com/netomation/core/TCPTester.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/com/netomation/core/UsersIDs.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/netomation_data.ini" afterPath="$PROJECT_DIR$/netomation_data.ini" />
+      <change beforePath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/api/SocialNetwork$SocialNetworkUser.class" afterPath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/api/SocialNetwork$SocialNetworkUser.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/api/SocialNetwork.class" afterPath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/api/SocialNetwork.class" />
       <change beforePath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/api/TwitterWrapper.class" afterPath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/api/TwitterWrapper.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/core/Listener.class" afterPath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/core/Listener.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/core/Main.class" afterPath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/core/Main.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/core/Worker.class" afterPath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/core/Worker.class" />
       <change beforePath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/data/Globals.class" afterPath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/data/Globals.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Netomation/test/com/netomation/core/Main.class" afterPath="$PROJECT_DIR$/out/production/Netomation/test/com/netomation/core/Main.class" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/netomation/api/SocialNetwork.java" afterPath="$PROJECT_DIR$/src/main/com/netomation/api/SocialNetwork.java" />
       <change beforePath="$PROJECT_DIR$/src/main/com/netomation/api/TwitterWrapper.java" afterPath="$PROJECT_DIR$/src/main/com/netomation/api/TwitterWrapper.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/netomation/core/Listener.java" afterPath="$PROJECT_DIR$/src/main/com/netomation/core/Listener.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/netomation/core/Main.java" afterPath="$PROJECT_DIR$/src/main/com/netomation/core/Main.java" />
       <change beforePath="$PROJECT_DIR$/src/main/com/netomation/core/Worker.java" afterPath="$PROJECT_DIR$/src/main/com/netomation/core/Worker.java" />
       <change beforePath="$PROJECT_DIR$/src/main/com/netomation/data/Globals.java" afterPath="$PROJECT_DIR$/src/main/com/netomation/data/Globals.java" />
+      <change beforePath="$PROJECT_DIR$/src/test/com/netomation/core/Main.java" afterPath="$PROJECT_DIR$/src/test/com/netomation/core/Main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,33 +44,48 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Globals.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/com/netomation/data/Globals.java">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/com/netomation/core/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="86" column="92" lean-forward="false" selection-start-line="86" selection-start-column="22" selection-end-line="86" selection-end-column="92" />
+            <state relative-caret-position="347">
+              <caret line="31" column="48" lean-forward="true" selection-start-line="31" selection-start-column="48" selection-end-line="31" selection-end-column="48" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Worker.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/com/netomation/core/Worker.java">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/com/netomation/core/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="27" column="57" lean-forward="true" selection-start-line="27" selection-start-column="57" selection-end-line="27" selection-end-column="57" />
+            <state relative-caret-position="240">
+              <caret line="24" column="23" lean-forward="true" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TwitterWrapper.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/com/netomation/api/TwitterWrapper.java">
+      <file leaf-file-name="WebsiteListener.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/com/netomation/core/WebsiteListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="250" column="41" lean-forward="true" selection-start-line="250" selection-start-column="41" selection-end-line="250" selection-end-column="41" />
+            <state relative-caret-position="543">
+              <caret line="112" column="20" lean-forward="true" selection-start-line="112" selection-start-column="20" selection-end-line="112" selection-end-column="20" />
               <folding>
-                <element signature="class#TwitterUser#0;class#TwitterWrapper#0" expanded="false" />
+                <element signature="method#pauseWorker#0;class#WebsiteListener#0" expanded="false" />
+                <element signature="method#pauseListener#0;class#WebsiteListener#0" expanded="false" />
+                <element signature="method#continueWorker#0;class#WebsiteListener#0" expanded="false" />
+                <element signature="method#continueListener#0;class#WebsiteListener#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TCPTester.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/com/netomation/core/TCPTester.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="15" column="37" lean-forward="true" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -73,17 +102,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>user</find>
-      <find>updatedDocument</find>
-      <find>collection</find>
-      <find>.update</find>
-      <find>collection.</find>
-      <find>.wait</find>
-      <find>TwitterWrapper</find>
-      <find>initTwitterObject</find>
-      <find>getConfiguration</find>
-      <find>setCredentials</find>
-      <find>initFile</find>
       <find>pref</find>
       <find>CACH</find>
       <find>14534</find>
@@ -94,7 +112,6 @@
       <find>(Long)</find>
       <find>(long)</find>
       <find>sendpr</find>
-      <find>delay</find>
       <find>27019</find>
       <find>privateMessage</find>
       <find>arrayIndex</find>
@@ -103,7 +120,22 @@
       <find>mongoClient</find>
       <find>CALL_FOR_PAPERS_URL</find>
       <find>DELAY_BEFORE_TRYING_OPERATION_AGAIN</find>
+      <find>getown</find>
+      <find>getOwnID</find>
+      <find>ownID</find>
+      <find>Waiting for</find>
+      <find>getOperationFromStatusCode</find>
+      <find>handleException</find>
+      <find>click</find>
+      <find>clicked</find>
+      <find>Clicked</find>
+      <find>ClickedTimestamp</find>
+      <find>MONGO_DB_USER_CLICKED_TIMESTAMP_KEY</find>
+      <find>delay</find>
     </findStrings>
+    <dirStrings>
+      <dir>C:\Users\Avihu Harush\IdeaProjects\Netomation</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="PUSH_AUTO_UPDATE" value="true" />
@@ -138,15 +170,18 @@
         <option value="$PROJECT_DIR$/src/main/com/netomation/data/Filter.java" />
         <option value="$PROJECT_DIR$/src/test/com/netomation/core/Dummy.java" />
         <option value="$PROJECT_DIR$/src/main/com/netomation/data/Preferences.java" />
-        <option value="$PROJECT_DIR$/src/test/com/netomation/core/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/com/netomation/core/Listener.java" />
-        <option value="$PROJECT_DIR$/src/main/com/netomation/api/SocialNetwork.java" />
-        <option value="$PROJECT_DIR$/src/main/com/netomation/core/Main.java" />
         <option value="$PROJECT_DIR$/src/main/com/netomation/data/Messages.java" />
         <option value="$PROJECT_DIR$/src/main/com/netomation/cache/MongoCache.java" />
-        <option value="$PROJECT_DIR$/src/main/com/netomation/data/Globals.java" />
-        <option value="$PROJECT_DIR$/src/main/com/netomation/core/Worker.java" />
         <option value="$PROJECT_DIR$/src/main/com/netomation/api/TwitterWrapper.java" />
+        <option value="$PROJECT_DIR$/src/test/com/netomation/core/UsersIDs.java" />
+        <option value="$PROJECT_DIR$/src/main/com/netomation/api/SocialNetwork.java" />
+        <option value="$PROJECT_DIR$/src/main/com/netomation/core/Worker.java" />
+        <option value="$PROJECT_DIR$/src/main/com/netomation/core/Listener.java" />
+        <option value="$PROJECT_DIR$/src/main/com/netomation/data/Globals.java" />
+        <option value="$PROJECT_DIR$/src/test/com/netomation/core/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/com/netomation/core/Main.java" />
+        <option value="$PROJECT_DIR$/src/test/com/netomation/core/TCPTester.java" />
+        <option value="$PROJECT_DIR$/src/main/com/netomation/core/WebsiteListener.java" />
       </list>
     </option>
   </component>
@@ -179,10 +214,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -213,6 +245,13 @@
               <item name="Netomation" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="netomation" type="462c0819:PsiDirectoryNode" />
+              <item name="cache" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Netomation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Netomation" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="netomation" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -222,10 +261,19 @@
               <item name="netomation" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Netomation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Netomation" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -261,7 +309,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main (2)">
+  <component name="RunManager" selected="Application.TCPTester">
     <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -335,6 +383,44 @@
       <module name="Netomation" />
       <envs />
     </configuration>
+    <configuration name="TCPTester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="test.com.netomation.core.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="test.com.netomation.core.TCPTester" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Netomation" />
+      <envs />
+    </configuration>
+    <configuration name="UsersIDs" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="test.com.netomation.core.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="test.com.netomation.core.UsersIDs" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Netomation" />
+      <envs />
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -350,16 +436,20 @@
       <envs />
       <method />
     </configuration>
-    <list size="3">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
       <item index="1" class="java.lang.String" itemvalue="Application.Main (2)" />
       <item index="2" class="java.lang.String" itemvalue="Application.Main (1)" />
+      <item index="3" class="java.lang.String" itemvalue="Application.UsersIDs" />
+      <item index="4" class="java.lang.String" itemvalue="Application.TCPTester" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Application.Main (2)" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Application.TCPTester" />
         <item index="1" class="java.lang.String" itemvalue="Application.Main (1)" />
-        <item index="2" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="2" class="java.lang.String" itemvalue="Application.UsersIDs" />
+        <item index="3" class="java.lang.String" itemvalue="Application.Main (2)" />
+        <item index="4" class="java.lang.String" itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -438,7 +528,18 @@
       <workItem from="1520082438377" duration="212000" />
       <workItem from="1520089142144" duration="225000" />
       <workItem from="1520091891166" duration="7000" />
-      <workItem from="1520091932958" duration="1145000" />
+      <workItem from="1520091932958" duration="1212000" />
+      <workItem from="1520114315526" duration="37000" />
+      <workItem from="1520115676818" duration="161000" />
+      <workItem from="1520179219429" duration="882000" />
+      <workItem from="1520181341356" duration="1279000" />
+      <workItem from="1520373283194" duration="46000" />
+      <workItem from="1522418936561" duration="441000" />
+      <workItem from="1522419536830" duration="3644000" />
+      <workItem from="1523136363992" duration="413000" />
+      <workItem from="1523137123921" duration="58000" />
+      <workItem from="1523783501016" duration="1048000" />
+      <workItem from="1523784655966" duration="5544000" />
     </task>
     <task id="LOCAL-00001" summary="Adding social network general interface, facebook and twitter wrappers, globals and preferences classes, and 'Netomation Logo'.">
       <created>1510168019143</created>
@@ -559,11 +660,18 @@
       <option name="project" value="LOCAL" />
       <updated>1520075961942</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="added random offset to waiting times">
+      <created>1520093093535</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1520093093535</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="209208000" />
+    <option name="totallyTimeSpent" value="222828000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -579,13 +687,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41675505" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22481441" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15520833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32873806" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -599,6 +706,7 @@
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28489584" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32873806" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -624,7 +732,8 @@
     <MESSAGE value="added auth to db" />
     <MESSAGE value="tested program" />
     <MESSAGE value="the running version on the server" />
-    <option name="LAST_COMMIT_MESSAGE" value="the running version on the server" />
+    <MESSAGE value="added random offset to waiting times" />
+    <option name="LAST_COMMIT_MESSAGE" value="added random offset to waiting times" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -636,7 +745,7 @@
           <option name="timeStamp" value="106" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="160" />
+      <option name="time" value="165" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -694,9 +803,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/netomation/core/Main.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/netomation/core/Main.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/netomation/api.java" />
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -745,13 +851,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_152/src.zip!/java/lang/Thread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="747" column="21" lean-forward="true" selection-start-line="747" selection-start-column="21" selection-end-line="747" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/libs/mongodb/mongo-java-driver-3.6.2-sources.jar!/com/mongodb/assertions/Assertions.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="417">
@@ -773,14 +872,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/netomation/data/Filter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="30" column="53" lean-forward="true" selection-start-line="30" selection-start-column="53" selection-end-line="30" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/libs/mongodb/mongo-java-driver-3.6.2-sources.jar!/org/bson/AbstractBsonWriter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -799,14 +890,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="1024" column="0" lean-forward="false" selection-start-line="1024" selection-start-column="0" selection-end-line="1024" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/com/netomation/core/Dummy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="33" lean-forward="true" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -838,13 +921,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/netomation/api/SocialNetworkFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="15" column="63" lean-forward="false" selection-start-line="15" selection-start-column="63" selection-end-line="15" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/libs/twitter4j-stream-4.0.4.jar!/twitter4j/TwitterStreamImpl.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="163">
@@ -860,26 +936,35 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/com/netomation/cache/Cache.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/com/netomation/data/Preferences.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_152/src.zip!/java/lang/Thread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1760">
-          <caret line="95" column="54" lean-forward="true" selection-start-line="95" selection-start-column="54" selection-end-line="95" selection-end-column="54" />
+        <state relative-caret-position="127">
+          <caret line="950" column="74" lean-forward="true" selection-start-line="950" selection-start-column="74" selection-end-line="950" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/com/netomation/core/Dummy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/com/netomation/api/SocialNetwork.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+        <state relative-caret-position="466">
+          <caret line="289" column="91" lean-forward="false" selection-start-line="289" selection-start-column="91" selection-end-line="289" selection-end-column="91" />
           <folding>
-            <element signature="e#1496#1497#0" expanded="true" />
+            <element signature="method#updateActiveUsersList#0;class#SocialNetwork#0" expanded="false" />
+            <element signature="method#convertIDsArrayToSocialNetworkUsers#0;class#SocialNetwork#0" expanded="false" />
             <element signature="method#SocialNetworkUser#0;class#SocialNetworkUser#0;class#SocialNetwork#0" expanded="false" />
-            <element signature="class#SocialNetworkUserCodec#0;class#SocialNetworkUser#0;class#SocialNetwork#0" expanded="false" />
-            <element signature="e#7653#7654#0" expanded="true" />
-            <element signature="e#7696#7697#0" expanded="true" />
-            <element signature="e#8944#8945#0" expanded="true" />
-            <element signature="e#9006#9007#0" expanded="true" />
+            <element signature="e#4211#4212#0" expanded="false" />
+            <element signature="e#4275#4276#0" expanded="false" />
+            <element signature="e#7966#7967#0" expanded="false" />
+            <element signature="e#8009#8010#0" expanded="false" />
+            <element signature="e#9257#9258#0" expanded="false" />
+            <element signature="e#9319#9320#0" expanded="false" />
             <element signature="class#SocialNetworkPrivateMessage#0;class#SocialNetwork#0" expanded="false" />
             <element signature="class#SocialNetworkPrivateMessageCodec#0;class#SocialNetworkPrivateMessage#0;class#SocialNetwork#0" expanded="false" />
             <element signature="method#decode#0;class#SocialNetworkPrivateMessageCodec#0;class#SocialNetworkPrivateMessage#0;class#SocialNetwork#0" expanded="false" />
@@ -889,104 +974,126 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/com/netomation/core/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/main/com/netomation/data/Filter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="20" column="56" lean-forward="false" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
-          <folding>
-            <element signature="method#getRandomString#0;class#Main#0" expanded="false" />
-            <element signature="class#UserImpl#0;class#Main#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="295">
+          <caret line="31" column="37" lean-forward="true" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/com/netomation/data/Preferences.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2">
+          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/com/netomation/data/Messages.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="14" column="112" lean-forward="false" selection-start-line="14" selection-start-column="112" selection-end-line="14" selection-end-column="112" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/netomation/cache/MongoCache.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1480">
-          <caret line="292" column="1" lean-forward="false" selection-start-line="292" selection-start-column="1" selection-end-line="292" selection-end-column="1" />
-          <folding>
-            <element signature="method#validConnection#0;class#MongoCache#0" expanded="false" />
-            <element signature="method#connect#0;class#MongoCache#0" expanded="false" />
-            <element signature="method#putToUsersTable#0;class#MongoCache#0" expanded="false" />
-            <element signature="e#3331#3344#0" expanded="false" />
-            <element signature="method#putToUsersTable#1;class#MongoCache#0" expanded="false" />
-            <element signature="method#parseSocialNetworkUserToHashMap#0;class#MongoCache#0" expanded="false" />
-            <element signature="method#addMessageToUser#0;class#MongoCache#0" expanded="false" />
-            <element signature="method#parseMessage#0;class#MongoCache#0" expanded="false" />
-            <element signature="method#deleteAllDataFromDatabase#0;class#MongoCache#0" expanded="false" />
-            <element signature="method#followingUser#0;class#MongoCache#0" expanded="false" />
-            <element signature="method#userFollowUs#0;class#MongoCache#0" expanded="false" />
-            <element signature="method#userStoppedFollowUs#0;class#MongoCache#0" expanded="false" />
-            <element signature="method#updateCollection#0;class#MongoCache#0" expanded="false" />
-            <element signature="e#12361#12362#0" expanded="true" />
-            <element signature="e#12415#12416#0" expanded="true" />
-            <element signature="method#updateActiveUsers#0;class#MongoCache#0" expanded="false" />
-            <element signature="method#parseSocialNetworkUsersToIds#0;class#MongoCache#0" expanded="false" />
-            <element signature="method#getQueueFromLastRunning#0;class#MongoCache#0" expanded="false" />
-            <element signature="method#getArrayIndexQueueFromLastRunning#0;class#MongoCache#0" expanded="false" />
-            <element signature="method#getUpdateFromIndexQueueFromLastRunning#0;class#MongoCache#0" expanded="false" />
-            <element signature="method#getQueueDocument#0;class#MongoCache#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/netomation/core/Listener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1760">
-          <caret line="111" column="5" lean-forward="false" selection-start-line="111" selection-start-column="5" selection-end-line="111" selection-end-column="5" />
-          <folding>
-            <element signature="class#554:817" expanded="false" />
-            <element signature="e#978#979#0" expanded="true" />
-            <element signature="e#1040#1041#0" expanded="true" />
-            <element signature="method#onFollow#0;class#864:4351" expanded="false" />
-            <element signature="method#onUnfollow#0;class#864:4351" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/netomation/core/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="45" column="48" lean-forward="false" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="48" />
-          <folding>
-            <element signature="e#2908#2909#0" expanded="true" />
-            <element signature="e#2974#2975#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/netomation/data/Globals.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="86" column="92" lean-forward="false" selection-start-line="86" selection-start-column="22" selection-end-line="86" selection-end-column="92" />
+        <state relative-caret-position="320">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/netomation/core/Worker.java">
+    <entry file="file://$PROJECT_DIR$/src/main/com/netomation/api/SocialNetworkFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="27" column="57" lean-forward="true" selection-start-line="27" selection-start-column="57" selection-end-line="27" selection-end-column="57" />
+        <state relative-caret-position="180">
+          <caret line="9" column="13" lean-forward="true" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/com/netomation/api/TwitterWrapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="250" column="41" lean-forward="true" selection-start-line="250" selection-start-column="41" selection-end-line="250" selection-end-column="41" />
+        <state relative-caret-position="176">
+          <caret line="174" column="22" lean-forward="true" selection-start-line="174" selection-start-column="22" selection-end-line="174" selection-end-column="22" />
           <folding>
             <element signature="class#TwitterUser#0;class#TwitterWrapper#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/com/netomation/cache/MongoCache.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="246" column="5" lean-forward="true" selection-start-line="246" selection-start-column="5" selection-end-line="246" selection-end-column="5" />
+          <folding>
+            <element signature="e#12361#12362#0" expanded="false" />
+            <element signature="e#12415#12416#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/com/netomation/core/UsersIDs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="9" column="23" lean-forward="true" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/com/netomation/data/Globals.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="125" column="67" lean-forward="false" selection-start-line="125" selection-start-column="67" selection-end-line="125" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/com/netomation/core/Listener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="49" column="40" lean-forward="false" selection-start-line="49" selection-start-column="40" selection-end-line="49" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/com/netomation/core/Worker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="19" column="23" lean-forward="true" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/com/netomation/core/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="31" column="48" lean-forward="true" selection-start-line="31" selection-start-column="48" selection-end-line="31" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/com/netomation/core/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="24" column="23" lean-forward="true" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/com/netomation/core/TCPTester.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="37" lean-forward="true" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/com/netomation/core/WebsiteListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="543">
+          <caret line="112" column="20" lean-forward="true" selection-start-line="112" selection-start-column="20" selection-end-line="112" selection-end-column="20" />
+          <folding>
+            <element signature="method#pauseWorker#0;class#WebsiteListener#0" expanded="false" />
+            <element signature="method#pauseListener#0;class#WebsiteListener#0" expanded="false" />
+            <element signature="method#continueWorker#0;class#WebsiteListener#0" expanded="false" />
+            <element signature="method#continueListener#0;class#WebsiteListener#0" expanded="false" />
           </folding>
         </state>
       </provider>

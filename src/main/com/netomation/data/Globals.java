@@ -71,8 +71,8 @@ public abstract class Globals {
     public static String[] CREDENTIALS = {
             "JHxulAsTHGTdlmvZuQFOnefxD",
             "JTybvBqSVPLIXabHDvRN9svlCpfgoE9c8J4SiY1ckbJC0ZERu8",
-            "969623122927333377-frO6w6tiCzGWHgN0OvbefGA0SydbweE",
-            "LUkeYAcI9y69IBRK6wBEskzSI5Vc34VRqnG9Bve6Nt2Ip"
+            "969623122927333377-dxzFiFSg5Aa8G30VjrSP3xzeyHE9Ml1",
+            "71Ve0HAbTpou3hyZHMWVFjSR7gT3uAWaziW1YNRQiCJSV"
     };
 
     // Execution Related
@@ -115,5 +115,16 @@ public abstract class Globals {
         DONT_TRY_AGAIN,
         BOT_DETECTED
     }
+
+    // TCP Server
+    public static int TCP_SERVER_PORT = 14535;
+    public static String PAUSE_PROGRAM_COMMAND = "PAUSE_ALL";
+    public static String PAUSE_LISTENER_COMMAND = "PAUSE_LISTENER";
+    public static String PAUSE_WORKER_COMMAND = "PAUSE_WORKER";
+    public static String CONTINUE_PROGRAM_COMMAND = "CONTINUE_ALL";
+    public static String CONTINUE_LISTENER_COMMAND = "CONTINUE_LISTENER";
+    public static String CONTINUE_WORKER_COMMAND = "CONTINUE_WORKER";
+    public static boolean WORKER_SHOULD_WORK = true;
+    public static boolean LISTENER_SHOULD_WORK = true;
 
 }

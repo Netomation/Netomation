@@ -9,6 +9,7 @@ import main.com.netomation.data.Filter;
 import main.com.netomation.data.Globals;
 import main.com.netomation.data.Preferences;
 
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,6 +18,7 @@ public class Main {
     private static Worker worker;
     private static Listener listener;
     private static SocialNetwork socialNetwork;
+    private static WebsiteListener websiteListener;
 
 
     public static void main(String[] args) {
@@ -27,9 +29,12 @@ public class Main {
         socialNetwork.setCredentials(Globals.CREDENTIALS);
         listener = new Listener(socialNetwork);
         worker = new Worker(socialNetwork);
-        startListener();
+        websiteListener = new WebsiteListener();
+        websiteListener.start();
+        startSocialNetworkListener();
         try{listener.join();}catch (Exception exp){exp.printStackTrace();}
         try{worker.join();}catch (Exception exp){exp.printStackTrace();}
+        try{websiteListener.join();}catch (Exception exp){exp.printStackTrace();}
     }
 
     public static void startWorker() {
@@ -42,7 +47,7 @@ public class Main {
         }
     }
 
-    public static void startListener() {
+    public static void startSocialNetworkListener() {
         System.out.println("Starting Listener");
         if(listener == null) {
             listener = new Listener(socialNetwork);
@@ -52,10 +57,10 @@ public class Main {
         }
     }
 
-    public static void restartListener() {
-        delay(Globals.DELAY_BEFORE_TRYING_OPERATION_AGAIN);
+    public static void restartSocialNetworkListener() {
+        delay(Globals.DELAY_BEFORE_TRYING_OPERATION_AGAIN + new Random().nextInt(Globals.DELAY_BEFORE_TRYING_OPERATION_AGAIN_RANDOM_OFFSET));
         listener = null;
-        startListener();
+        startSocialNetworkListener();
     }
 
     private static void initProgram() {
@@ -81,7 +86,9 @@ public class Main {
     }
 
     public static void delay(int time) {
+        System.out.println("Starting delay(time = " + time + ")");
         try{Thread.sleep(time);} catch (Exception ignore){}
+        System.out.println("After delay(time = " + time + ")");
     }
 
     public static SocialNetwork.SocialNetworkPrivateMessage generatePrivateMessageObject(SocialNetwork.SocialNetworkUser user, String message) {

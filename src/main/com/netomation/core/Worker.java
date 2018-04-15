@@ -24,10 +24,12 @@ public class Worker extends Thread {
         socialNetwork.updateActiveUsersList(-1);
         while(true) {
             for(; arrayIndex < socialNetwork.getActiveUsersList().size() ; arrayIndex++) {
+                freezeProgramIfNeeded();
                 SocialNetwork.SocialNetworkUser user = socialNetwork.getActiveUsersList().get(arrayIndex);
                 System.out.println("Worker delaying...");
                 delay(Globals.DELAY_BEFORE_INTERACTING_WITH_NEXT_USER + new Random().nextInt(Globals.DELAY_BEFORE_INTERACTING_WITH_NEXT_USER_RANDOM_OFFSET));
                 System.out.println("Worker done delaying, going on.");
+                freezeProgramIfNeeded();
                 if(socialNetwork.shouldContactUser(user) && !userIsFromInitGroup(user) && socialNetwork.canSendPrivateMessage(user)) {
                     MongoCache.getInstance().putToUsersTable(user);
                     String message = Messages.generateMessage(user.getId());
@@ -63,6 +65,12 @@ public class Worker extends Thread {
             if(user.getId().toString().equals(Globals.START_GROUP_IDS[i].toString()))
                 return true;
         return false;
+    }
+
+    private void freezeProgramIfNeeded() {
+        while(!Globals.WORKER_SHOULD_WORK) {
+            try{Thread.sleep(2000);}catch (Exception ignore){}
+        }
     }
 
 }

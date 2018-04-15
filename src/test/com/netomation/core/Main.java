@@ -4,6 +4,7 @@ import main.com.netomation.api.SocialNetwork;
 import main.com.netomation.api.SocialNetworkFactory;
 import main.com.netomation.api.TwitterWrapper;
 import main.com.netomation.cache.MongoCache;
+import main.com.netomation.core.WebsiteListener;
 import main.com.netomation.data.Globals;
 import main.com.netomation.data.Messages;
 import twitter4j.Twitter;
@@ -18,6 +19,11 @@ public class Main {
     static Dummy dummy = new Dummy();
 
     public static void main(String[] args) {
+        WebsiteListener listener = new WebsiteListener();
+        listener.start();
+        try{listener.join();}catch (Exception exp){exp.printStackTrace();}
+        System.exit(0);
+
         System.out.println(getTwitterID("IaakovExman"));
         System.exit(0);
         MongoCache.getInstance().deleteAllDataFromDatabase();

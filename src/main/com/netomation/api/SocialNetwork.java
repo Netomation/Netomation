@@ -22,6 +22,8 @@ public abstract class SocialNetwork {
 
     public abstract Object getOwnID();
 
+    public abstract boolean isConnected();
+
     public abstract SocialNetworkUser getUser(Object id);
 
     public abstract ArrayList<SocialNetworkUser> getExpansionGroupByUser(Object id);
@@ -115,6 +117,7 @@ public abstract class SocialNetwork {
         private Object geoLocation = null;
         private Object language = null;
         private boolean clicked = false;
+        private Date clickedTimestamp = null;
         private String connectionType = Globals.ConnectionType.NONE;
         private Date firstMeetTimestamp = new Date();
 
@@ -129,6 +132,15 @@ public abstract class SocialNetwork {
         public String getClickedDatabaseKey() {
             return Globals.MONGO_DB_USER_CLICKED_KEY;
         }
+
+        public Date getClickedTimestamp() {
+            return clickedTimestamp;
+        }
+
+        public void setClickedTimestamp(Date clickedTimestamp) {
+            this.clickedTimestamp = clickedTimestamp;
+        }
+
 
         public String getFirstName() {
             return firstName;

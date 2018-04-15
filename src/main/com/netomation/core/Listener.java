@@ -2,25 +2,31 @@ package main.com.netomation.core;
 
 import main.com.netomation.api.SocialNetwork;
 import main.com.netomation.cache.MongoCache;
+import main.com.netomation.data.Globals;
 import main.com.netomation.data.Messages;
 import twitter4j.*;
 
 public class Listener extends Thread {
 
     private SocialNetwork socialNetwork;
+    private boolean killThread = false;
 
     public Listener(SocialNetwork socialNetwork) {
         this.socialNetwork = socialNetwork;
     }
 
     public void run() {
+        if(!socialNetwork.isConnected()) {
+            return;
+        }
         TwitterStream socialNetworkStream = (TwitterStream)socialNetwork.getListenerStream();
         socialNetworkStream.addConnectionLifeCycleListener(new ConnectionLifeCycleListener() {
             public void onConnect() {
                 Main.startWorker();
             }
             public void onDisconnect() {
-                Main.restartListener();
+                killThread = true;
+                Main.restartSocialNetworkListener();
             }
             public void onCleanUp() {}
         });
@@ -41,6 +47,7 @@ public class Listener extends Thread {
             public void onUnfavorite(User user, User user1, Status status) { }
             @Override
             public void onFollow(User user, User user1) {
+                freezeProgramIfNeeded();
                 if(!String.valueOf(user.getId()).equals(socialNetwork.getOwnID().toString()) && String.valueOf(user1.getId()).equals(socialNetwork.getOwnID().toString())) {
                     System.out.println("User: " + user.getName() + " started following us.");
                     MongoCache.getInstance().userFollowUs(socialNetwork.getUser(user.getId()));
@@ -48,6 +55,7 @@ public class Listener extends Thread {
             }
             @Override
             public void onUnfollow(User user, User user1) {
+                freezeProgramIfNeeded();
                 if(!String.valueOf(user.getId()).equals(socialNetwork.getOwnID().toString()) && String.valueOf(user1.getId()).equals(socialNetwork.getOwnID().toString())) {
                     System.out.println("User: " + user.getName() + " stopped following us.");
                     MongoCache.getInstance().userStoppedFollowUs(socialNetwork.getUser(user.getId()));
@@ -95,10 +103,11 @@ public class Listener extends Thread {
             public void onStallWarning(StallWarning stallWarning) { }
         });
         socialNetworkStream.user();
-        while(true){try{Listener.class.wait();}catch(Exception ignore){}}
+        while(!killThread){try{sleep(5000);}catch(Exception ignore){}}
     }
 
     private void receivedMessage(DirectMessage directMessage) {
+        freezeProgramIfNeeded();
         if(String.valueOf(directMessage.getSender().getId()).equals(socialNetwork.getOwnID().toString())) {
             return;
         }
@@ -112,6 +121,7 @@ public class Listener extends Thread {
     }
 
     private void sendResponseMessage(SocialNetwork.SocialNetworkUser messageFrom) {
+        freezeProgramIfNeeded();
         if(socialNetwork.canSendPrivateMessage(messageFrom)) {
             String rawMessage = Messages.generateMessage(messageFrom.getId());
             SocialNetwork.SocialNetworkPrivateMessage message = Main.generatePrivateMessageObject(messageFrom, rawMessage);
@@ -120,6 +130,12 @@ public class Listener extends Thread {
             System.out.println("successfully sent a private message.");
         } else {
             System.out.println("Could not sent a private message.");
+        }
+    }
+
+    private void freezeProgramIfNeeded() {
+        while(!Globals.LISTENER_SHOULD_WORK) {
+            try{Thread.sleep(2000);}catch (Exception ignore){}
         }
     }
 
