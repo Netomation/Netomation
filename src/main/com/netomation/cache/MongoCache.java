@@ -4,21 +4,21 @@ import com.mongodb.*;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.sun.xml.internal.ws.api.model.MEP;
 import main.com.netomation.api.SocialNetwork;
 import main.com.netomation.data.Globals;
 import org.bson.Document;
-import org.bson.codecs.configuration.CodecRegistries;
-import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.conversions.Bson;
-import twitter4j.LoggerFactory;
+import org.omg.PortableInterceptor.Interceptor;
 
-import javax.print.Doc;
-import javax.print.attribute.standard.DocumentName;
+import java.io.ByteArrayOutputStream;
+import java.io.FileDescriptor;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.lang.reflect.Method;
-import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashMap;
 
 public class MongoCache {
 
@@ -33,12 +33,39 @@ public class MongoCache {
     }
 
     public static boolean validConnection() {
+        System.setOut(new PrintStream(new ByteArrayOutputStream()));
+        System.setErr(new PrintStream(new ByteArrayOutputStream()));
+        boolean toReturn = false;
+        MongoCredential credential = MongoCredential.createCredential(Globals.MONGO_DB_CONNECTION_USERNAME, "admin", Globals.MONGO_DB_CONNECTION_PASSWORD.toCharArray());
+        MongoClientOptions options = new MongoClientOptions.Builder().serverSelectionTimeout(1000).build();
         try {
-            MongoCredential credential = MongoCredential.createCredential(Globals.MONGO_DB_CONNECTION_USERNAME, "admin", Globals.MONGO_DB_CONNECTION_PASSWORD.toCharArray());
-            MongoClientOptions options = new MongoClientOptions.Builder().build();
-            new MongoClient(new ServerAddress(Globals.MONGO_DB_ADDRESS, Globals.MONGO_DB_PORT),credential, options).getAddress();
-            return true;
-        } catch (Exception exp) {return false;}
+            try{new MongoClient(new ServerAddress(Globals.MONGO_DB_ADDRESS, Globals.MONGO_DB_PORT),credential, options).getAddress();}
+            catch (Exception ignore) {
+                new MongoClient(new ServerAddress(Globals.MONGO_DB_ADDRESS, Globals.MONGO_DB_DEFAULT_PORT),credential, options).getAddress();
+            }
+            toReturn = true;
+        } catch (Exception ignore) {}
+        System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
+        System.setErr(new PrintStream(new FileOutputStream(FileDescriptor.err)));
+        return toReturn;
+    }
+
+    public static int serverRunsOnPort() {
+        System.setOut(new PrintStream(new ByteArrayOutputStream()));
+        System.setErr(new PrintStream(new ByteArrayOutputStream()));
+        MongoCredential credential = MongoCredential.createCredential(Globals.MONGO_DB_CONNECTION_USERNAME, "admin", Globals.MONGO_DB_CONNECTION_PASSWORD.toCharArray());
+        MongoClientOptions options = new MongoClientOptions.Builder().serverSelectionTimeout(1000).build();
+        int portToReturn = Globals.MONGO_DB_PORT;
+        try {
+            try{new MongoClient(new ServerAddress(Globals.MONGO_DB_ADDRESS, portToReturn),credential, options).getAddress();}
+            catch (Exception ignore) {
+                portToReturn = Globals.MONGO_DB_DEFAULT_PORT;
+                new MongoClient(new ServerAddress(Globals.MONGO_DB_ADDRESS, portToReturn),credential, options).getAddress();
+            }
+        } catch (Exception ignore) {}
+        System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
+        System.setErr(new PrintStream(new FileOutputStream(FileDescriptor.err)));
+        return portToReturn;
     }
 
     private MongoCache() {
@@ -46,10 +73,14 @@ public class MongoCache {
     }
 
     private void connect() {
+        System.setOut(new PrintStream(new ByteArrayOutputStream()));
+        System.setErr(new PrintStream(new ByteArrayOutputStream()));
         MongoCredential credential = MongoCredential.createCredential(Globals.MONGO_DB_CONNECTION_USERNAME, "admin", Globals.MONGO_DB_CONNECTION_PASSWORD.toCharArray());
-        MongoClientOptions options = new MongoClientOptions.Builder().build();
-        MongoClient mongoClient = new MongoClient(new ServerAddress(Globals.MONGO_DB_ADDRESS, Globals.MONGO_DB_PORT), credential, options);
+        MongoClientOptions options = new MongoClientOptions.Builder().serverSelectionTimeout(1000).build();
+        MongoClient mongoClient = new MongoClient(new ServerAddress(Globals.MONGO_DB_ADDRESS, serverRunsOnPort()), credential, options);
         database = mongoClient.getDatabase(Globals.MONGO_DB_DATABASE_NAME);
+        System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
+        System.setErr(new PrintStream(new FileOutputStream(FileDescriptor.err)));
     }
 
     private synchronized void putToUsersTable(HashMap<String, Object> values) {
@@ -57,7 +88,7 @@ public class MongoCache {
         BasicDBObject query = new BasicDBObject();
         query.put(Globals.MONGO_DB_USER_ID_KEY, values.get(Globals.MONGO_DB_USER_ID_KEY));
         FindIterable<Document> result = collection.find(query);
-        if(result.first() == null) { // new entry
+        if(result.first() == null) {
             Document document = new Document();
             document.put(Globals.MONGO_DB_ENTRY_CREATION_TIME_KEY, new Date());
             for (String key : values.keySet()) {
@@ -75,27 +106,6 @@ public class MongoCache {
                 document.put(key, value);
             }
             collection.insertOne(document);
-        } else { // edit entry
-//            BasicDBObject updatedDocument = new BasicDBObject();
-//            for (String key : values.keySet()) {
-//                if(key.equals(Globals.MONGO_DB_USER_ID_KEY) && result.first().get(Globals.MONGO_DB_USER_ID_KEY) != null) {
-//                    continue;
-//                }
-//                if(key.equals(Globals.MONGO_DB_ENTRY_CREATION_TIME_KEY) && result.first().get(Globals.MONGO_DB_ENTRY_CREATION_TIME_KEY) != null) {
-//                    continue;
-//                }
-//                if(key.equals(Globals.MONGO_DB_USER_FIRST_MEET_TIMESTAMP_KEY) && result.first().get(Globals.MONGO_DB_USER_FIRST_MEET_TIMESTAMP_KEY) != null) {
-//                    continue;
-//                }
-//                if(key.equals(Globals.MONGO_DB_USER_CONNECTION_TYPE_KEY) && result.first().get(Globals.MONGO_DB_USER_CONNECTION_TYPE_KEY) != null) {
-//                    continue;
-//                }
-//                if(key.equals(Globals.MONGO_DB_USER_CLICKED_KEY) && result.first().get(Globals.MONGO_DB_USER_CLICKED_KEY) != null) {
-//                    continue;
-//                }
-//                updatedDocument.put("$set", new BasicDBObject().append(key, values.get(key)));
-//                updateCollection(collection, query, updatedDocument);
-//            }
         }
     }
 
@@ -290,4 +300,5 @@ public class MongoCache {
         }
         return doc.get("_id").toString();
     }
+
 }

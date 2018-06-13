@@ -11,8 +11,9 @@ public abstract class Messages {
     }
 
     private static String getSite(Object userID) {
-        //return Globals.CALL_FOR_PAPERS_URL;
-        return Globals.DDNS + ":" + Globals.DDNS_PORT + "/" + MongoCache.getInstance().getDbKeyByUserId(userID);
+        if(MongoCache.validConnection())
+            return Globals.DDNS + ":" + Globals.DDNS_PORT + "/" + MongoCache.getInstance().getDbKeyByUserId(userID);
+        return Globals.CALL_FOR_PAPERS_URL;
     }
 
 }

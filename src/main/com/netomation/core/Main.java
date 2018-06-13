@@ -1,6 +1,5 @@
 package main.com.netomation.core;
 
-import com.mongodb.Mongo;
 import main.com.netomation.api.SocialNetwork;
 import main.com.netomation.api.SocialNetworkFactory;
 import main.com.netomation.api.TwitterWrapper;
@@ -22,6 +21,7 @@ public class Main {
 
 
     public static void main(String[] args) {
+        printNetomationIcon();
         initProgram();
         letUserReviewProperties();
         System.out.println("Creating SocialNetwork instance.");
@@ -97,6 +97,18 @@ public class Main {
         toReturn.setToUserId(user.getId());
         toReturn.setFromUserId(socialNetwork.getOwnID());
         return toReturn;
+    }
+
+    private static void printNetomationIcon() {
+        System.out.println("" +
+                "  _   _   _____   _____    ___    __  __      _      _____   ___    ___    _   _ \n" +
+                " | \\ | | | ____| |_   _|  / _ \\  |  \\/  |    / \\    |_   _| |_ _|  / _ \\  | \\ | |\n" +
+                " |  \\| | |  _|     | |   | | | | | |\\/| |   / _ \\     | |    | |  | | | | |  \\| |\n" +
+                " | |\\  | | |___    | |   | |_| | | |  | |  / ___ \\    | |    | |  | |_| | | |\\  |\n" +
+                " |_| \\_| |_____|   |_|    \\___/  |_|  |_| /_/   \\_\\   |_|   |___|  \\___/  |_| \\_|\n" +
+                "                                                                                 " +
+                "");
+        try { Thread.sleep(700); }catch (Exception ignore) { }
     }
 
 }

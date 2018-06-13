@@ -17,7 +17,7 @@ public abstract class Filter {
         }
         description = description.toLowerCase();
         for(String keyword : Globals.FILTER_KEYWORDS) {
-            if(description.contains(keyword))
+            if(description.contains(keyword.toLowerCase()))
                 return include;
         }
         return !include;
@@ -36,8 +36,11 @@ public abstract class Filter {
     }
 
     public static boolean agePassFilter(int age) {
-        return Globals.MIN_AGE_FILTER < 0 && Globals.MAX_AGE_FILTER < 0 ||
-                Globals.MIN_AGE_FILTER <= age && age <= Globals.MAX_AGE_FILTER;
+        if (Globals.MIN_AGE_FILTER < 0 && Globals.MAX_AGE_FILTER < 0) return true;
+        if (Globals.MIN_AGE_FILTER > Globals.MAX_AGE_FILTER && Globals.MIN_AGE_FILTER > 0 && Globals.MAX_AGE_FILTER > 0) return false;
+        if (Globals.MAX_AGE_FILTER < 0) return Globals.MIN_AGE_FILTER <= age && age >= 0;
+        if (Globals.MIN_AGE_FILTER < 0) return Globals.MAX_AGE_FILTER >= age && age >= 0;
+        return Globals.MIN_AGE_FILTER <= age && age <= Globals.MAX_AGE_FILTER;
     }
 
     public static boolean countryPassFilter(String country, boolean include) {
@@ -46,7 +49,7 @@ public abstract class Filter {
         }
         country = country.toLowerCase();
         for(String count : Globals.FILTER_COUNTRIES) {
-            if(country.equals(count))
+            if(country.equalsIgnoreCase(count))
                 return include;
         }
         return !include;

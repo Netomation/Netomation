@@ -58,6 +58,8 @@ public class Preferences {
                             field.set(Globals.class, pref.getArray(field.getName()));
                         else if (field.get(Globals.class) instanceof Object[])
                             field.set(Globals.class, pref.getArray(field.getName()));
+                        else if(field.get(Globals.class) instanceof Boolean)
+                            field.set(Globals.class, Boolean.valueOf(pref.get(Globals.GLOBAL_SECTION, field.getName()).toString()));
                         else
                             field.set(Globals.class, pref.get(Globals.GLOBAL_SECTION, field.getName()));
                     }

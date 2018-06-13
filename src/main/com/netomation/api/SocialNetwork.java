@@ -94,20 +94,12 @@ public abstract class SocialNetwork {
         return false;
     }
 
+
+
+
     public static abstract class SocialNetworkUser<T> {
 
         protected T _user;
-
-        public SocialNetworkUser(T originalUserObject) {
-            _user = originalUserObject;
-            setFirstName(mapFirstName());
-            setLastName(mapLastName());
-            setId(mapId());
-            setParentId(mapParentId());
-            setDescription(mapDescription());
-            setGeoLocation(mapGeoLocation());
-            setLanguage(mapLanguage());
-        }
 
         private String firstName = null;
         private String lastName = null;
@@ -121,16 +113,79 @@ public abstract class SocialNetwork {
         private String connectionType = Globals.ConnectionType.NONE;
         private Date firstMeetTimestamp = new Date();
 
+        public SocialNetworkUser(T originalUserObject) {
+            _user = originalUserObject;
+            setFirstName(mapFirstName());
+            setLastName(mapLastName());
+            setId(mapId());
+            setParentId(mapParentId());
+            setDescription(mapDescription());
+            setGeoLocation(mapGeoLocation());
+            setLanguage(mapLanguage());
+        }
+
+        protected abstract String mapFirstName();
+
+        protected abstract String mapLastName();
+
+        protected abstract Object mapId();
+
+        protected abstract Object mapParentId();
+
+        protected abstract String mapDescription();
+
+        protected abstract Object mapGeoLocation();
+
+        protected abstract Object mapLanguage();
+
+        public abstract ArrayList<SocialNetworkUser> getExpansionGroup();
+
+        public String getConnectionTypeDatabaseKey() {
+            return Globals.MONGO_DB_USER_CONNECTION_TYPE_KEY;
+        }
+
+        public String getFirstMeetTimestampDatabaseKey() {
+            return Globals.MONGO_DB_USER_FIRST_MEET_TIMESTAMP_KEY;
+        }
+
+        public String getLanguageDatabaseKey() {
+            return Globals.MONGO_DB_USER_LANGUAGE_KEY;
+        }
+
+        public String getGeoLocationDatabaseKey() {
+            return Globals.MONGO_DB_USER_GEO_LOCATION_KEY;
+        }
+
+        public String getDescriptionDatabaseKey() {
+            return Globals.MONGO_DB_USER_DESCRIPTION_KEY;
+        }
+
+        public String getParentIdDatabaseKey() {
+            return Globals.MONGO_DB_USER_PARENT_ID_KEY;
+        }
+
+        public String getIdDatabaseKey() {
+            return Globals.MONGO_DB_USER_ID_KEY;
+        }
+
+        public String getLastNameDatabaseKey() {
+            return Globals.MONGO_DB_LAST_NAME_KEY;
+        }
+
+        public String getFirstNameDatabaseKey() {
+            return Globals.MONGO_DB_FIRST_NAME_KEY;
+        }
+
+        public String getClickedDatabaseKey() {
+            return Globals.MONGO_DB_USER_CLICKED_KEY;
+        }
+
         public boolean getClicked() {
             return clicked;
         }
 
         public void setClicked(boolean clicked) {
             this.clicked = clicked;
-        }
-
-        public String getClickedDatabaseKey() {
-            return Globals.MONGO_DB_USER_CLICKED_KEY;
         }
 
         public Date getClickedTimestamp() {
@@ -141,106 +196,61 @@ public abstract class SocialNetwork {
             this.clickedTimestamp = clickedTimestamp;
         }
 
-
         public String getFirstName() {
             return firstName;
-        }
-
-        public String getFirstNameDatabaseKey() {
-            return Globals.MONGO_DB_FIRST_NAME_KEY;
         }
 
         public void setFirstName(String firstName) {
             this.firstName = firstName;
         }
 
-        protected abstract String mapFirstName();
-
         public String getLastName() {
             return lastName;
-        }
-
-        public String getLastNameDatabaseKey() {
-            return Globals.MONGO_DB_LAST_NAME_KEY;
         }
 
         public void setLastName(String lastName) {
             this.lastName = lastName;
         }
 
-        protected abstract String mapLastName();
-
         public Object getId() {
             return id;
-        }
-
-        public String getIdDatabaseKey() {
-            return Globals.MONGO_DB_USER_ID_KEY;
         }
 
         public void setId(Object id) {
             this.id = id;
         }
 
-        protected abstract Object mapId();
-
         public Object getParentId() {
             return parentId;
-        }
-
-        public String getParentIdDatabaseKey() {
-            return Globals.MONGO_DB_USER_PARENT_ID_KEY;
         }
 
         public void setParentId(Object parentId) {
             this.parentId = parentId;
         }
 
-        protected abstract Object mapParentId();
-
         public String getDescription() {
             return description;
-        }
-
-        public String getDescriptionDatabaseKey() {
-            return Globals.MONGO_DB_USER_DESCRIPTION_KEY;
         }
 
         public void setDescription(String description) {
             this.description = description;
         }
 
-        protected abstract String mapDescription();
-
         public Object getGeoLocation() {
             return geoLocation;
-        }
-
-        public String getGeoLocationDatabaseKey() {
-            return Globals.MONGO_DB_USER_GEO_LOCATION_KEY;
         }
 
         public void setGeoLocation(Object geoLocation) {
             this.geoLocation = geoLocation;
         }
 
-        protected abstract Object mapGeoLocation();
-
         public Object getLanguage() {
             return language;
-        }
-
-        public String getLanguageDatabaseKey() {
-            return Globals.MONGO_DB_USER_LANGUAGE_KEY;
         }
 
         public void setLanguage(Object language) {
             this.language = language;
         }
-
-        protected abstract Object mapLanguage();
-
-        public abstract ArrayList<SocialNetworkUser> getExpansionGroup();
 
         public T getOriginalUser() {
             return _user;
@@ -250,20 +260,12 @@ public abstract class SocialNetwork {
             return firstMeetTimestamp;
         }
 
-        public String getFirstMeetTimestampDatabaseKey() {
-            return Globals.MONGO_DB_USER_FIRST_MEET_TIMESTAMP_KEY;
-        }
-
         public void setFirstMeetTimestamp(Date firstMeetTimestamp) {
             this.firstMeetTimestamp = firstMeetTimestamp;
         }
 
         public String getConnectionType() {
             return connectionType;
-        }
-
-        public String getConnectionTypeDatabaseKey() {
-            return Globals.MONGO_DB_USER_CONNECTION_TYPE_KEY;
         }
 
         public void setConnectionType(String connectionType) {
@@ -298,6 +300,8 @@ public abstract class SocialNetwork {
         }
 
     }
+
+
 
     public static class SocialNetworkPrivateMessage {
         private Date timestamp = new Date();

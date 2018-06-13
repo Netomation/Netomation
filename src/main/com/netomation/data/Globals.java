@@ -1,7 +1,6 @@
 package main.com.netomation.data;
 
 import javax.swing.*;
-import java.io.File;
 
 /*
  * Final fields will not show up in the ini file
@@ -43,9 +42,10 @@ public abstract class Globals {
     public static String MONGO_DB_ACTIVE_USERS_ARRAY_INDEX = "array_index";
     public static String MONGO_DB_ACTIVE_USERS_UPDATE_FROM_INDEX = "update_from_index";
     public static String MONGO_DB_ADDRESS = "localhost";
-    public static String MONGO_DB_CONNECTION_USERNAME = "avihu";
-    public static String MONGO_DB_CONNECTION_PASSWORD = "netomation123456";
+    public static String MONGO_DB_CONNECTION_USERNAME = "netomation";
+    public static String MONGO_DB_CONNECTION_PASSWORD = "netomation";
     public static int MONGO_DB_PORT = 27019;
+    public static final int MONGO_DB_DEFAULT_PORT = 27017;
 
     // Filter Related
     public static int MIN_AGE_FILTER = -1;
@@ -69,22 +69,22 @@ public abstract class Globals {
     };
 
     public static String[] CREDENTIALS = {
-            "JHxulAsTHGTdlmvZuQFOnefxD",
-            "JTybvBqSVPLIXabHDvRN9svlCpfgoE9c8J4SiY1ckbJC0ZERu8",
-            "969623122927333377-dxzFiFSg5Aa8G30VjrSP3xzeyHE9Ml1",
-            "71Ve0HAbTpou3hyZHMWVFjSR7gT3uAWaziW1YNRQiCJSV"
+            "9xjQZs17bpUCHvCG9pokGdJzi",
+            "N7VKHt22ItDJhXqW4sjuS2Ea7CFdOc1Oa8Bu2NOTGIVHpzs7XW",
+            "892388780753211392-JfFbaWlpfQb03rxQV6hZEBu12SDr3Sl",
+            "SosL4XiNEBAtVGX7J7ElU9ptgqNWS0leK2vbO8nWN28dv"
     };
 
     // Execution Related
     public static Object[] START_GROUP_IDS = {1325385696};
 
     // Delays
-    public static int DELAY_BEFORE_INTERACTING_WITH_NEXT_USER = 20 * 1000;
-    public static int DELAY_BEFORE_INTERACTING_WITH_NEXT_USER_RANDOM_OFFSET = 40 * 1000;
-    public static int DELAY_BEFORE_TRYING_OPERATION_AGAIN = 60 * 1000;
-    public static int DELAY_BEFORE_TRYING_OPERATION_AGAIN_RANDOM_OFFSET = 50 * 1000;
-    public static int DELAY_BEFORE_TRYING_OPERATION_AGAIN_FOR_AUTOMATION_ERROR = 20 * 60 * 1000;
-    public static int DELAY_BEFORE_TRYING_OPERATION_AGAIN_FOR_AUTOMATION_ERROR_RANDOM_OFFSET = 10 * 60 * 1000;
+    public static int DELAY_BEFORE_INTERACTING_WITH_NEXT_USER = 60 * 1000;
+    public static int DELAY_BEFORE_INTERACTING_WITH_NEXT_USER_RANDOM_OFFSET = 2 * 60 * 1000;
+    public static int DELAY_BEFORE_TRYING_OPERATION_AGAIN = 3 * 60 * 1000;
+    public static int DELAY_BEFORE_TRYING_OPERATION_AGAIN_RANDOM_OFFSET = 2 * 60 * 1000;
+    public static int DELAY_BEFORE_TRYING_OPERATION_AGAIN_FOR_AUTOMATION_ERROR = 25 * 60 * 1000;
+    public static int DELAY_BEFORE_TRYING_OPERATION_AGAIN_FOR_AUTOMATION_ERROR_RANDOM_OFFSET = 15 * 60 * 1000;
 
     // Messages
     public static String CALL_FOR_PAPERS_URL = "http://ksiresearchorg.ipage.com/seke/seke18.html";

@@ -19,6 +19,11 @@ public class Main {
     static Dummy dummy = new Dummy();
 
     public static void main(String[] args) {
+
+        MongoTestingUtils.addRandomUserToDb();
+
+
+        System.exit(0);
         WebsiteListener listener = new WebsiteListener();
         listener.start();
         try{listener.join();}catch (Exception exp){exp.printStackTrace();}
@@ -31,11 +36,11 @@ public class Main {
         for(long i = 25000000 ; i < (25000000 + 100000) ; i++) {
             UserImpl user = new UserImpl(null);
             user.setId(i);
-            user.setFirstName(getRandomString());
-            user.setLastName(getRandomString());
-            user.setGeoLocation(getRandomString());
-            user.setDescription(getRandomString());
-            user.setLanguage(getRandomString());
+            user.setFirstName(MongoTestingUtils.getRandomString());
+            user.setLastName(MongoTestingUtils.getRandomString());
+            user.setGeoLocation(MongoTestingUtils.getRandomString());
+            user.setDescription(MongoTestingUtils.getRandomString());
+            user.setLanguage(MongoTestingUtils.getRandomString());
             MongoCache.getInstance().putToUsersTable(user);
         }
 
@@ -82,15 +87,6 @@ public class Main {
             SocialNetwork.SocialNetworkUser user = twitter.getUser(twitter.getOwnID());
             MongoCache.getInstance().putToUsersTable(user);
         } catch (Exception exp){exp.printStackTrace();}
-    }
-
-    private static String getRandomString() {
-        String chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        Random rand = new Random();
-        StringBuilder toReturn = new StringBuilder();
-        for(int i = 0 ; i < 8 ; i++)
-            toReturn.append(chars.charAt(rand.nextInt(chars.length())));
-        return toReturn.toString();
     }
 
     private static long getTwitterID(String name) {
@@ -150,6 +146,19 @@ public class Main {
     }
 
 
+    public int show_numbers(int wanted) {
+        return show_numbers(wanted, wanted, 0, 0);
+    }
 
-
+    private int show_numbers(int wanted, int leftover, int digit, int counter) {
+        if(leftover == 0)
+            if(digit < 9)
+                return Math.max(counter, show_numbers(wanted, wanted, digit + 1, 0));
+            else
+                return counter;
+        if(leftover % 10 == digit)
+            return show_numbers(wanted, leftover / 10, digit, ++counter);
+        else
+            return show_numbers(wanted, leftover / 10, digit, counter);
+    }
 }

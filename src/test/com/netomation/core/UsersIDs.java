@@ -14,7 +14,7 @@ public class UsersIDs {
 
     public static void main(String[] args) {
         initProgram();
-        printUsersIds("martinfowler","gi_decuzzi","Matyf_","ajlopez","kfgodel");
+        printUsersIds("tchvu3", "yakirwin");
     }
 
     public static void initProgram() {
