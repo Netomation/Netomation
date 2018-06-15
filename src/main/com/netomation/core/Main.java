@@ -95,7 +95,8 @@ public class Main {
         SocialNetwork.SocialNetworkPrivateMessage toReturn = new SocialNetwork.SocialNetworkPrivateMessage();
         toReturn.setContent(message);
         toReturn.setToUserId(user.getId());
-        toReturn.setFromUserId(socialNetwork.getOwnID());
+        if(socialNetwork != null)
+            toReturn.setFromUserId(socialNetwork.getOwnID());
         return toReturn;
     }
 

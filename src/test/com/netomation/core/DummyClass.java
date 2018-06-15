@@ -1,6 +1,6 @@
 package test.com.netomation.core;
 
-public class Dummy {
+public class DummyClass {
 
     public synchronized void doYourThing() {
         System.out.println("Going to sleep...");

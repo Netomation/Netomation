@@ -18,6 +18,7 @@ public class Worker extends Thread {
     }
 
     public void run() {
+        if(socialNetwork == null) return;
         int arrayIndex = MongoCache.getInstance().getArrayIndexQueueFromLastRunning();
         int updateFromIndex = MongoCache.getInstance().getUpdateFromIndexQueueFromLastRunning();
         System.out.println("Initial update of users list.");

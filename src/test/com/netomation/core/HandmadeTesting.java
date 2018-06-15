@@ -11,12 +11,10 @@ import twitter4j.Twitter;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Random;
 
-public class Main {
+public class HandmadeTesting {
 
-    static Dummy dummy = new Dummy();
+    static DummyClass dummy = new DummyClass();
 
     public static void main(String[] args) {
 
