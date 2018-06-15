@@ -8,6 +8,7 @@ import main.com.netomation.core.Listener;
 import main.com.netomation.data.Filter;
 import main.com.netomation.data.Globals;
 import main.com.netomation.data.Preferences;
+import twitter4j.Twitter;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
