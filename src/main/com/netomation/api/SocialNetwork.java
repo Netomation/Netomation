@@ -22,6 +22,8 @@ public abstract class SocialNetwork {
 
     public abstract Object getOwnID();
 
+    public abstract String getOwnName();
+
     public abstract boolean isConnected();
 
     public abstract SocialNetworkUser getUser(Object id);
@@ -82,20 +84,29 @@ public abstract class SocialNetwork {
         return toReturn;
     }
 
-    public boolean blockUser(Object id) {
-        return false;
-    }
+    public boolean removeFriendship(Object id) { return false; }
 
-    public boolean getConnection(SocialNetworkUser user1, SocialNetworkUser user2) {
-        return false;
-    }
+    public boolean blockUser(Object id) { return false; }
 
-    public boolean unblockUser(Object id) {
-        return false;
-    }
+    public boolean getConnection(SocialNetworkUser user1, SocialNetworkUser user2) { return false; }
 
+    public boolean uploadStatus(String status) { return false; }
 
+    public boolean updateStatus(Object statusId, String status) { return false; }
 
+    public boolean deleteStatus(Object statusId) { return false; }
+
+    public boolean updateProfile(Object... args) { return false; }
+
+    public boolean unblockUser(Object id) { return false; }
+
+    public boolean getPrivateMessage(Object id) { return false; }
+
+    public boolean deletePrivateMessage(Object id) { return false; }
+
+    public boolean reportSpam(Object id) { return false; }
+
+    public boolean getTimeline() { return false; }
 
     public static abstract class SocialNetworkUser<T> {
 
@@ -300,8 +311,6 @@ public abstract class SocialNetwork {
         }
 
     }
-
-
 
     public static class SocialNetworkPrivateMessage {
         private Date timestamp = new Date();

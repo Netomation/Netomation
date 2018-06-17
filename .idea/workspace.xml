@@ -6,9 +6,29 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9944a8b4-8004-4141-b997-76cf61f96f5e" name="Default" comment="fixed tests">
+    <list default="true" id="9944a8b4-8004-4141-b997-76cf61f96f5e" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/facebook4j_core_2_4_10.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Netomation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Netomation.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/api/SocialNetwork$SocialNetworkPrivateMessage$SocialNetworkPrivateMessageCodec.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/api/SocialNetwork$SocialNetworkPrivateMessage$SocialNetworkPrivateMessageCodec.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/api/SocialNetwork$SocialNetworkPrivateMessage$SocialNetworkPrivateMessageCodecProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/api/SocialNetwork$SocialNetworkPrivateMessage$SocialNetworkPrivateMessageCodecProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/api/SocialNetwork$SocialNetworkPrivateMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/api/SocialNetwork$SocialNetworkPrivateMessage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/api/SocialNetwork$SocialNetworkUser$SocialNetworkUserCodec.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/api/SocialNetwork$SocialNetworkUser$SocialNetworkUserCodec.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/api/SocialNetwork$SocialNetworkUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/api/SocialNetwork$SocialNetworkUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/api/SocialNetwork.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/api/SocialNetwork.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/api/TwitterWrapper$TwitterUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/api/TwitterWrapper$TwitterUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/api/TwitterWrapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/api/TwitterWrapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/core/Listener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/core/Listener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/core/Worker.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/core/Worker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Netomation/test/com/netomation/core/DummyClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Netomation/test/com/netomation/core/DummyClass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/netomation/api/SocialNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/netomation/api/SocialNetwork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/netomation/api/TwitterWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/netomation/api/TwitterWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/netomation/cache/MongoCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/netomation/cache/MongoCache.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/com/netomation/core/DummyClass.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/com/netomation/core/HandmadeTesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/com/netomation/core/HandmadeTesting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/com/netomation/core/Junit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/com/netomation/core/Junit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/com/netomation/core/MongoTestingUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/com/netomation/core/MongoTestingUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/com/netomation/core/Preview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/com/netomation/core/Preview.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/com/netomation/core/UsersIDs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/com/netomation/core/UsersIDs.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,8 +52,8 @@
       <file leaf-file-name="Listener.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/com/netomation/core/Listener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="499">
-              <caret line="142" lean-forward="true" selection-start-line="142" selection-end-line="142" />
+            <state relative-caret-position="289">
+              <caret line="115" column="105" selection-start-line="115" selection-start-column="105" selection-end-line="115" selection-end-column="105" />
               <folding>
                 <element signature="e#401#402#0" expanded="true" />
                 <element signature="e#451#452#0" expanded="true" />
@@ -74,6 +94,19 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="TwitterWrapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/com/netomation/api/TwitterWrapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="32" lean-forward="true" selection-start-column="32" selection-end-column="32" />
+              <folding>
+                <element signature="class#TwitterUser#0;class#TwitterWrapper#0" />
+                <element signature="method#handleException#0;class#TwitterWrapper#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -85,25 +118,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>handleException</find>
-      <find>click</find>
-      <find>clicked</find>
-      <find>Clicked</find>
-      <find>ClickedTimestamp</find>
-      <find>MONGO_DB_USER_CLICKED_TIMESTAMP_KEY</find>
-      <find>delay</find>
-      <find>STUD</find>
-      <find>abstract</find>
-      <find>DatabaseKey</find>
-      <find>show_numbers</find>
-      <find>desc</find>
-      <find>FILTER_KEYWORDS</find>
-      <find>MIN_AGE_FILTER</find>
-      <find>putToUsersTable</find>
-      <find>UserImpl</find>
-      <find>userExist</find>
-      <find>mongo</find>
-      <find>PORT</find>
       <find>SocialNetworkPrivateMessage</find>
       <find>createf</find>
       <find>websiteListener</find>
@@ -115,6 +129,25 @@
       <find>initProgram</find>
       <find>startWorker</find>
       <find>worker</find>
+      <find>credi</find>
+      <find>getConfiguration</find>
+      <find>initTwitterObject</find>
+      <find>ownID</find>
+      <find>can</find>
+      <find>privateMessa</find>
+      <find>delete</find>
+      <find>message</find>
+      <find>settings</find>
+      <find>twitter</find>
+      <find>status</find>
+      <find>removeFriendship</find>
+      <find>blockUser</find>
+      <find>getC</find>
+      <find>uploadS</find>
+      <find>updateProfile</find>
+      <find>{ return false; }</find>
+      <find>sendPrivateMessage</find>
+      <find>getTimeline</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\Avihu Harush\IdeaProjects\Netomation</dir>
@@ -145,7 +178,6 @@
         <option value="$PROJECT_DIR$/src/com/netomation/cache/Cache.java" />
         <option value="$PROJECT_DIR$/src/main/com/netomation/api/SocialNetworkFactory.java" />
         <option value="$PROJECT_DIR$/src/main/com/netomation/cache/Cache.java" />
-        <option value="$PROJECT_DIR$/src/main/com/netomation/api/TwitterWrapper.java" />
         <option value="$PROJECT_DIR$/src/test/com/netomation/core/TCPTester.java" />
         <option value="$PROJECT_DIR$/src/main/com/netomation/core/WebsiteListener.java" />
         <option value="$PROJECT_DIR$/src/main/com/netomation/data/Preferences.java" />
@@ -156,14 +188,15 @@
         <option value="$PROJECT_DIR$/src/test/com/netomation/core/Main.java" />
         <option value="$PROJECT_DIR$/src/main/com/netomation/cache/MongoCache.java" />
         <option value="$PROJECT_DIR$/src/main/com/netomation/data/Globals.java" />
-        <option value="$PROJECT_DIR$/src/main/com/netomation/api/SocialNetwork.java" />
         <option value="$PROJECT_DIR$/src/test/com/netomation/core/Dummy.java" />
-        <option value="$PROJECT_DIR$/src/test/com/netomation/core/DummyClass.java" />
-        <option value="$PROJECT_DIR$/src/test/com/netomation/core/HandmadeTesting.java" />
         <option value="$PROJECT_DIR$/src/main/com/netomation/core/Main.java" />
         <option value="$PROJECT_DIR$/src/main/com/netomation/core/Worker.java" />
         <option value="$PROJECT_DIR$/src/test/com/netomation/core/UsersIDs.java" />
         <option value="$PROJECT_DIR$/src/test/com/netomation/core/Preview.java" />
+        <option value="$PROJECT_DIR$/src/test/com/netomation/core/DummyClass.java" />
+        <option value="$PROJECT_DIR$/src/test/com/netomation/core/HandmadeTesting.java" />
+        <option value="$PROJECT_DIR$/src/main/com/netomation/api/SocialNetwork.java" />
+        <option value="$PROJECT_DIR$/src/main/com/netomation/api/TwitterWrapper.java" />
         <option value="$PROJECT_DIR$/src/main/com/netomation/core/Listener.java" />
       </list>
     </option>
@@ -178,7 +211,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-43" />
+    <option name="x" value="1040" />
+    <option name="y" value="10" />
     <option name="width" value="817" />
     <option name="height" value="1038" />
   </component>
@@ -190,6 +224,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -252,9 +287,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -269,8 +303,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.PLUGIN_MODULE" value="IntelliJ IDEA IU-172.4343.14" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/facebook4j-core-2.4.10.jar!/" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.20984216" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -294,7 +328,17 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Preview">
+  <component name="RunManager" selected="Application.DummyClass">
+    <configuration name="DummyClass" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.com.netomation.core.DummyClass" />
+      <module name="Netomation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.com.netomation.core.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
     <configuration name="HandmadeTesting" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="test.com.netomation.core.HandmadeTesting" />
       <module name="Netomation" />
@@ -353,9 +397,11 @@
       <item itemvalue="JUnit.Junit" />
       <item itemvalue="Application.UsersIDs" />
       <item itemvalue="Application.Preview" />
+      <item itemvalue="Application.DummyClass" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.DummyClass" />
         <item itemvalue="Application.Preview" />
         <item itemvalue="Application.UsersIDs" />
         <item itemvalue="Application.HandmadeTesting" />
@@ -465,7 +511,11 @@
       <workItem from="1528622906864" duration="15000" />
       <workItem from="1528912154898" duration="2376000" />
       <workItem from="1529084015825" duration="80000" />
-      <workItem from="1529084168667" duration="5566000" />
+      <workItem from="1529084168667" duration="6190000" />
+      <workItem from="1529098085905" duration="198000" />
+      <workItem from="1529158553409" duration="38000" />
+      <workItem from="1529233715221" duration="1530000" />
+      <workItem from="1529237084119" duration="8108000" />
     </task>
     <task id="LOCAL-00001" summary="Adding social network general interface, facebook and twitter wrappers, globals and preferences classes, and 'Netomation Logo'.">
       <created>1510168019143</created>
@@ -650,7 +700,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="261112000" />
+    <option name="totallyTimeSpent" value="271610000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -667,21 +717,21 @@
       <window_info anchor="right" id="Maven Projects" order="4" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.3289183" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49947917" weight="0.36460555" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49947917" weight="0.36430833" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15520833" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15520833" />
       <window_info anchor="right" id="Database" order="6" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.29104477" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Debug" order="4" visible="true" weight="0.26012793" />
+      <window_info anchor="bottom" id="Debug" order="4" visible="true" weight="0.25976768" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.29104477" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="right" id="Coverage" order="10" side_tool="true" weight="0.28489584" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -722,11 +772,36 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="210" />
+      <option name="time" value="212" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>names</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>methods</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>twitter.loo</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>methods[1].getName()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>methods[0].getName()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>relationship.canSourceDm()</expression-string>
         <language-id>JAVA</language-id>
@@ -747,35 +822,9 @@
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>Filter.agePassFilter(50)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>doc.get(&quot;_id&quot;).toString()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>Globals.MONGO_DB_ACTIVE_USERS_COLLECTION_NAME</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>database.getCollection(Globals.MONGO_DB_ACTIVE_USERS_COLLECTION_NAME)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>activeUsersList.get(i)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/netomation/data/Preferences.java" />
     <entry file="file://$PROJECT_DIR$/src/com/netomation/data/Globals.java" />
     <entry file="file://$PROJECT_DIR$/src/com/netomation/data/Messages.java" />
     <entry file="file://$PROJECT_DIR$/src/com/netomation/core/Worker.java" />
@@ -860,13 +909,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/com/netomation/cache/Cache.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_152/src.zip!/java/lang/Thread.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/com/netomation/api/SocialNetworkFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="13" lean-forward="true" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="uml://JAVA/main.com.netomation">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -1018,23 +1060,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/netomation/api/SocialNetwork.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="218" column="23" selection-start-line="218" selection-start-column="23" selection-end-line="218" selection-end-column="23" />
-          <folding>
-            <element signature="method#updateActiveUsersList#0;class#SocialNetwork#0" />
-            <element signature="method#convertIDsArrayToSocialNetworkUsers#0;class#SocialNetwork#0" />
-            <element signature="class#SocialNetworkPrivateMessage#0;class#SocialNetwork#0" />
-            <element signature="class#SocialNetworkPrivateMessageCodec#0;class#SocialNetworkPrivateMessage#0;class#SocialNetwork#0" />
-            <element signature="method#decode#0;class#SocialNetworkPrivateMessageCodec#0;class#SocialNetworkPrivateMessage#0;class#SocialNetwork#0" />
-            <element signature="method#encode#0;class#SocialNetworkPrivateMessageCodec#0;class#SocialNetworkPrivateMessage#0;class#SocialNetwork#0" />
-            <element signature="class#SocialNetworkPrivateMessageCodecProvider#0;class#SocialNetworkPrivateMessage#0;class#SocialNetwork#0" />
-            <element signature="method#get#0;class#SocialNetworkPrivateMessageCodecProvider#0;class#SocialNetworkPrivateMessage#0;class#SocialNetwork#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/com/netomation/data/Messages.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-7">
@@ -1046,11 +1071,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-7">
           <caret line="25" column="80" selection-start-line="25" selection-start-column="80" selection-end-line="25" selection-end-column="80" />
-          <folding>
-            <element signature="method#initFilter#0;class#Filter#0" />
-            <element signature="method#agePassFilter#0;class#Filter#0" />
-            <element signature="method#countryPassFilter#0;class#Filter#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1100,7 +1120,7 @@
           </nodes>
           <notes />
           <edges />
-          <settings layout="Directed Orthogonal" zoom="1.2000000000000002" x="368.7228327228326" y="237.25000000000009" />
+          <settings layout="Directed Orthogonal" zoom="1.2000000000000002" x="369.0" y="237.0" />
           <SelectedNodes />
           <Categories>
             <Category>Fields</Category>
@@ -1111,55 +1131,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/com/netomation/core/DummyClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/com/netomation/core/Junit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/com/netomation/core/MongoTestingUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="36" column="74" lean-forward="true" selection-start-line="36" selection-start-column="74" selection-end-line="36" selection-end-column="74" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/com/netomation/core/TCPTester.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/com/netomation/core/HandmadeTesting.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/libs/twitter4j-stream-4.0.4.jar!/twitter4j/StatusStreamBase.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="205">
           <caret line="160" selection-start-line="160" selection-end-line="160" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/com/netomation/core/UsersIDs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -1170,24 +1145,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/netomation/api/TwitterWrapper.java">
+    <entry file="file://$PROJECT_DIR$/src/test/com/netomation/core/DummyClass.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="74" column="66" lean-forward="true" selection-start-line="74" selection-start-column="66" selection-end-line="74" selection-end-column="66" />
+        <state relative-caret-position="72">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/com/netomation/core/Worker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="23" column="60" lean-forward="true" selection-start-line="23" selection-start-column="60" selection-end-line="23" selection-end-column="60" />
+        <state relative-caret-position="576">
+          <caret line="33" column="41" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/com/netomation/core/TCPTester.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/com/netomation/core/UsersIDs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/com/netomation/core/Preview.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="22" column="44" lean-forward="true" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
+        <state relative-caret-position="312">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
           <folding>
             <element signature="method#startup#0;class#Preview#0" />
             <element signature="method#printNetomationIcon#0;class#Preview#0" />
@@ -1196,10 +1185,77 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/com/netomation/core/MongoTestingUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="768">
+          <caret line="36" column="52" lean-forward="true" selection-start-line="36" selection-start-column="52" selection-end-line="36" selection-end-column="52" />
+          <folding>
+            <element signature="e#1331#1332#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/com/netomation/core/Junit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3358">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/com/netomation/core/HandmadeTesting.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/com/netomation/api/SocialNetworkFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="27" column="68" selection-start-line="27" selection-start-column="68" selection-end-line="27" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.base/java/lang/Object.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/com/netomation/api/SocialNetwork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1250">
+          <caret line="99" lean-forward="true" selection-start-line="99" selection-end-line="99" />
+          <folding>
+            <element signature="method#updateActiveUsersList#0;class#SocialNetwork#0" />
+            <element signature="method#convertIDsArrayToSocialNetworkUsers#0;class#SocialNetwork#0" />
+            <element signature="class#SocialNetworkUser#0;class#SocialNetwork#0" />
+            <element signature="class#SocialNetworkPrivateMessage#0;class#SocialNetwork#0" />
+            <element signature="class#SocialNetworkPrivateMessageCodec#0;class#SocialNetworkPrivateMessage#0;class#SocialNetwork#0" />
+            <element signature="method#decode#0;class#SocialNetworkPrivateMessageCodec#0;class#SocialNetworkPrivateMessage#0;class#SocialNetwork#0" />
+            <element signature="method#encode#0;class#SocialNetworkPrivateMessageCodec#0;class#SocialNetworkPrivateMessage#0;class#SocialNetwork#0" />
+            <element signature="class#SocialNetworkPrivateMessageCodecProvider#0;class#SocialNetworkPrivateMessage#0;class#SocialNetwork#0" />
+            <element signature="method#get#0;class#SocialNetworkPrivateMessageCodecProvider#0;class#SocialNetworkPrivateMessage#0;class#SocialNetwork#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/com/netomation/api/TwitterWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="32" lean-forward="true" selection-start-column="32" selection-end-column="32" />
+          <folding>
+            <element signature="class#TwitterUser#0;class#TwitterWrapper#0" />
+            <element signature="method#handleException#0;class#TwitterWrapper#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/com/netomation/core/Listener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="142" lean-forward="true" selection-start-line="142" selection-end-line="142" />
+        <state relative-caret-position="289">
+          <caret line="115" column="105" selection-start-line="115" selection-start-column="105" selection-end-line="115" selection-end-column="105" />
           <folding>
             <element signature="e#401#402#0" expanded="true" />
             <element signature="e#451#452#0" expanded="true" />
@@ -1281,7 +1337,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>1.8</last-edited>
+          <last-edited>10</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1306,7 +1362,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>libs</last-edited>
+          <last-edited>facebook4j-core-2.4.10</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

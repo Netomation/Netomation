@@ -19,6 +19,7 @@ public class TwitterWrapper extends SocialNetwork {
     private Configuration configuration;
     private Twitter twitter = null;
     private long ownID;
+    private String ownName;
     private String OAuthConsumerKey;
     private String OAuthConsumerSecret;
     private String OAuthAccessToken;
@@ -43,6 +44,8 @@ public class TwitterWrapper extends SocialNetwork {
             twitter = new TwitterFactory(configuration).getInstance();
             try {ownID = twitter.getId();}
             catch (TwitterException exp) {execute = handleException(exp);}
+            try {ownName = twitter.getScreenName();}
+            catch (TwitterException exp) {execute = handleException(exp);}
         }
     }
 
@@ -58,6 +61,19 @@ public class TwitterWrapper extends SocialNetwork {
                 .setOAuthConsumerSecret(OAuthConsumerSecret)
                 .setOAuthAccessToken(OAuthAccessToken)
                 .setOAuthAccessTokenSecret(OAuthAccessTokenSecret).build();
+    }
+
+    @Override
+    public boolean uploadStatus(String status) {
+        boolean execute = true;
+        while(execute) {
+            execute = false;
+            try {
+                twitter.updateStatus(status);
+                return true;
+            } catch (Exception exp) {execute = handleException(exp);}
+        }
+        return false;
     }
 
     @Override
@@ -111,6 +127,11 @@ public class TwitterWrapper extends SocialNetwork {
     @Override
     public Object getOwnID() {
         return ownID;
+    }
+
+    @Override
+    public String getOwnName() {
+        return ownName;
     }
 
     @Override

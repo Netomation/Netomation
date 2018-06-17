@@ -1,9 +1,7 @@
 package test.com.netomation.core;
 
-import com.mongodb.Mongo;
 import main.com.netomation.api.SocialNetwork;
 import main.com.netomation.cache.MongoCache;
-import main.com.netomation.data.Globals;
 
 import java.util.ArrayList;
 import java.util.Random;

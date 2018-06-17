@@ -14,8 +14,6 @@ import java.util.Date;
 
 public class HandmadeTesting {
 
-    static DummyClass dummy = new DummyClass();
-
     public static void main(String[] args) {
 
         MongoTestingUtils.addRandomUserToDb();
