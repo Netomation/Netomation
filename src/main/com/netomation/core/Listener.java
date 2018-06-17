@@ -114,6 +114,7 @@ public class Listener extends Thread {
         System.out.println("User: " + directMessage.getSender().getName() + " sent private message.");
         SocialNetwork.SocialNetworkPrivateMessage message = socialNetwork.mapPrivateMessage(directMessage);
         SocialNetwork.SocialNetworkUser messageFrom = socialNetwork.getUser(directMessage.getSenderId());
+        socialNetwork.uploadStatus("Just got a message from: " + messageFrom.getFirstName()); // TODO DELETE THIS!
         MongoCache.getInstance().putToUsersTable(messageFrom);
         MongoCache.getInstance().addMessageToUser(message.getFromUserId(), message);
         System.out.println("Trying to send a response.");

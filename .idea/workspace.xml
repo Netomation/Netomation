@@ -6,10 +6,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9944a8b4-8004-4141-b997-76cf61f96f5e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/facebook4j_core_2_4_10.xml" afterDir="false" />
+    <list default="true" id="9944a8b4-8004-4141-b997-76cf61f96f5e" name="Default" comment="optimized imports">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Netomation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Netomation.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/api/SocialNetwork$SocialNetworkPrivateMessage$SocialNetworkPrivateMessageCodec.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/api/SocialNetwork$SocialNetworkPrivateMessage$SocialNetworkPrivateMessageCodec.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/api/SocialNetwork$SocialNetworkPrivateMessage$SocialNetworkPrivateMessageCodecProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/api/SocialNetwork$SocialNetworkPrivateMessage$SocialNetworkPrivateMessageCodecProvider.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/api/SocialNetwork$SocialNetworkPrivateMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/api/SocialNetwork$SocialNetworkPrivateMessage.class" afterDir="false" />
@@ -21,14 +19,7 @@
       <change beforePath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/core/Listener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/core/Listener.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/core/Worker.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Netomation/main/com/netomation/core/Worker.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Netomation/test/com/netomation/core/DummyClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Netomation/test/com/netomation/core/DummyClass.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/netomation/api/SocialNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/netomation/api/SocialNetwork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/netomation/api/TwitterWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/netomation/api/TwitterWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/netomation/cache/MongoCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/netomation/cache/MongoCache.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/com/netomation/core/DummyClass.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/com/netomation/core/HandmadeTesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/com/netomation/core/HandmadeTesting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/com/netomation/core/Junit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/com/netomation/core/Junit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/com/netomation/core/MongoTestingUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/com/netomation/core/MongoTestingUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/com/netomation/core/Preview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/com/netomation/core/Preview.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/netomation/core/Listener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/netomation/core/Listener.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,8 +43,8 @@
       <file leaf-file-name="Listener.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/com/netomation/core/Listener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="115" column="105" selection-start-line="115" selection-start-column="105" selection-end-line="115" selection-end-column="105" />
+            <state relative-caret-position="241">
+              <caret line="113" column="102" lean-forward="true" selection-start-line="113" selection-start-column="102" selection-end-line="113" selection-end-column="102" />
               <folding>
                 <element signature="e#401#402#0" expanded="true" />
                 <element signature="e#451#452#0" expanded="true" />
@@ -515,7 +506,7 @@
       <workItem from="1529098085905" duration="198000" />
       <workItem from="1529158553409" duration="38000" />
       <workItem from="1529233715221" duration="1530000" />
-      <workItem from="1529237084119" duration="8108000" />
+      <workItem from="1529237084119" duration="8145000" />
     </task>
     <task id="LOCAL-00001" summary="Adding social network general interface, facebook and twitter wrappers, globals and preferences classes, and 'Netomation Logo'.">
       <created>1510168019143</created>
@@ -664,7 +655,14 @@
       <option name="project" value="LOCAL" />
       <updated>1529096872019</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="optimized imports">
+      <created>1529262522892</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1529262522892</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -700,7 +698,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="271610000" />
+    <option name="totallyTimeSpent" value="271647000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -768,7 +766,8 @@
     <MESSAGE value="added random offset to waiting times" />
     <MESSAGE value="added website listener" />
     <MESSAGE value="fixed tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed tests" />
+    <MESSAGE value="optimized imports" />
+    <option name="LAST_COMMIT_MESSAGE" value="optimized imports" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1254,8 +1253,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/com/netomation/core/Listener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="115" column="105" selection-start-line="115" selection-start-column="105" selection-end-line="115" selection-end-column="105" />
+        <state relative-caret-position="241">
+          <caret line="113" column="102" lean-forward="true" selection-start-line="113" selection-start-column="102" selection-end-line="113" selection-end-column="102" />
           <folding>
             <element signature="e#401#402#0" expanded="true" />
             <element signature="e#451#452#0" expanded="true" />
