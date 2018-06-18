@@ -22,7 +22,7 @@ public class Listener extends Thread {
         TwitterStream socialNetworkStream = (TwitterStream)socialNetwork.getListenerStream();
         socialNetworkStream.addConnectionLifeCycleListener(new ConnectionLifeCycleListener() {
             public void onConnect() {
-                Main.startWorker();
+                //Main.startWorker(); TODO this method should be uncommented!
             }
             public void onDisconnect() {
                 killThread = true;

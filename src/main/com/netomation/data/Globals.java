@@ -85,6 +85,7 @@ public abstract class Globals {
     public static int DELAY_BEFORE_TRYING_OPERATION_AGAIN_RANDOM_OFFSET = 2 * 60 * 1000;
     public static int DELAY_BEFORE_TRYING_OPERATION_AGAIN_FOR_AUTOMATION_ERROR = 25 * 60 * 1000;
     public static int DELAY_BEFORE_TRYING_OPERATION_AGAIN_FOR_AUTOMATION_ERROR_RANDOM_OFFSET = 15 * 60 * 1000;
+    public static int PREF_FILE_CHANGE_POOLING_TIMEOUT = 2 * 1000;
 
     // Messages
     public static String CALL_FOR_PAPERS_URL = "http://ksiresearchorg.ipage.com/seke/seke18.html";

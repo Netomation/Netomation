@@ -12,6 +12,7 @@ import java.util.ArrayList;
 public class Preferences {
 
     private static File file = new File(Globals.PREFERENCES_FILE_NAME);
+    private static long fileLatestModified;
     private static Preferences instance;
     private static Ini ini;
 
@@ -26,6 +27,8 @@ public class Preferences {
         try {
             fileExistAndReady();
             createWiniAndAttachFile();
+            fileLatestModified = file.lastModified();
+            new FileChangeListener().start();
         }
         catch (Exception exp) { exp.printStackTrace(); }
     }
@@ -127,7 +130,19 @@ public class Preferences {
         return (modifiers & java.lang.reflect.Modifier.FINAL) == java.lang.reflect.Modifier.FINAL;
     }
 
-
+    private class FileChangeListener extends Thread {
+        public void run() {
+            try{sleep(5000);} catch (Exception ignore) {} // letting the file enough time to write to disc
+            while(true) {
+                try{sleep(Globals.PREF_FILE_CHANGE_POOLING_TIMEOUT);} catch (Exception ignore) {}
+                if(fileLatestModified != file.lastModified()) {
+                    fileLatestModified = file.lastModified();
+                    System.out.println("Modification found in preferences file, updating...");
+                    initPreferences();
+                }
+            }
+        }
+    }
 
 
 }
